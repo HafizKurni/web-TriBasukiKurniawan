@@ -1,9 +1,13 @@
 import Link from "next/link";
-import { ENTITIES } from "@/lib/entities";
+import { getMenuOrder } from "@/lib/page-meta-actions";
 import { logout } from "../actions";
-import { LogOut, LayoutDashboard, UserRound } from "lucide-react";
+import { LogOut, LayoutDashboard, UserRound, ListOrdered } from "lucide-react";
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
+export const dynamic = "force-dynamic";
+
+export default async function AdminLayout({ children }: { children: React.ReactNode }) {
+  const menu = await getMenuOrder();
+
   return (
     <div className="min-h-screen flex">
       <aside className="w-64 bg-dark text-white flex flex-col shrink-0 min-h-screen">
@@ -27,15 +31,21 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <div className="pt-3 mt-3 border-t border-slate-700 text-xs uppercase tracking-wide text-slate-500 px-4">
             Data
           </div>
-          {ENTITIES.map((e) => (
+          {menu.map((m) => (
             <Link
-              key={e.slug}
-              href={`/admin/${e.slug}`}
+              key={m.slug}
+              href={`/admin/${m.slug}`}
               className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors"
             >
-              {e.label}
+              {m.title}
             </Link>
           ))}
+          <Link
+            href="/admin/menu"
+            className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors"
+          >
+            <ListOrdered className="w-4 h-4" /> Kelola Menu
+          </Link>
         </nav>
         <div className="p-4 border-t border-slate-700 space-y-2">
           <Link href="/" className="block text-xs text-slate-400 hover:text-white">

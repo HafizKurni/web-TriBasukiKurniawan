@@ -127,4 +127,5 @@ model PageMeta {
   slug        String  @id
   title       String?
   description String?
+  sortOrder   Int     @default(0)
 }

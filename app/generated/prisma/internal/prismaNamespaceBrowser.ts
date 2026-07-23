@@ -230,7 +230,8 @@ export type AdminUserScalarFieldEnum = (typeof AdminUserScalarFieldEnum)[keyof t
 export const PageMetaScalarFieldEnum = {
   slug: 'slug',
   title: 'title',
-  description: 'description'
+  description: 'description',
+  sortOrder: 'sortOrder'
 } as const
 
 export type PageMetaScalarFieldEnum = (typeof PageMetaScalarFieldEnum)[keyof typeof PageMetaScalarFieldEnum]

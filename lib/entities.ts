@@ -35,7 +35,7 @@ export const ENTITIES: EntityConfig[] = [
     label: "Pendidikan",
     model: "education",
     titleField: "level",
-    listColumns: ["level", "institution", "period"],
+    listColumns: ["level", "institution", "period", "fileUrl"],
     defaultTitle: "Riwayat Pendidikan",
     fields: [
       { name: "level", label: "Jenjang (mis. S3 — Doktor)", type: "text", required: true },
@@ -54,7 +54,7 @@ export const ENTITIES: EntityConfig[] = [
     label: "Pengalaman Kerja",
     model: "experience",
     titleField: "position",
-    listColumns: ["position", "institution", "period"],
+    listColumns: ["position", "institution", "period", "fileUrl"],
     defaultTitle: "Riwayat Pekerjaan",
     fields: [
       { name: "position", label: "Jabatan / Posisi", type: "text", required: true },
@@ -71,7 +71,7 @@ export const ENTITIES: EntityConfig[] = [
     label: "Pengajaran",
     model: "teaching",
     titleField: "title",
-    listColumns: ["title", "institution", "year"],
+    listColumns: ["title", "institution", "year", "fileUrl"],
     defaultTitle: "Pengajaran & Pelatihan yang Pernah Disampaikan",
     fields: [
       { name: "title", label: "Topik / Materi", type: "text", required: true },
@@ -88,7 +88,7 @@ export const ENTITIES: EntityConfig[] = [
     label: "Publikasi",
     model: "publication",
     titleField: "title",
-    listColumns: ["category", "title", "year"],
+    listColumns: ["category", "title", "year", "fileUrl"],
     defaultTitle: "Publikasi",
     fields: [
       { name: "category", label: "Kategori", type: "select", required: true, options: PUBLICATION_CATEGORIES },
@@ -107,7 +107,7 @@ export const ENTITIES: EntityConfig[] = [
     label: "Pengabdian",
     model: "project",
     titleField: "title",
-    listColumns: ["title", "client", "year"],
+    listColumns: ["title", "client", "year", "imageUrl"],
     defaultTitle: "Pengabdian kepada Masyarakat & Instansi",
     defaultDescription:
       "Proyek pengembangan sistem informasi dan konsultasi IT untuk instansi pemerintah, institusi pendidikan, dan organisasi masyarakat.",
@@ -126,7 +126,7 @@ export const ENTITIES: EntityConfig[] = [
     label: "Keahlian Teknis",
     model: "skill",
     titleField: "category",
-    listColumns: ["category", "items"],
+    listColumns: ["category", "items", "fileUrl"],
     defaultTitle: "Keahlian Teknis",
     fields: [
       { name: "category", label: "Kategori", type: "text", required: true },
@@ -141,7 +141,7 @@ export const ENTITIES: EntityConfig[] = [
     label: "Minat Riset",
     model: "researchInterest",
     titleField: "text",
-    listColumns: ["text"],
+    listColumns: ["text", "fileUrl"],
     defaultTitle: "Minat Riset",
     fields: [
       { name: "text", label: "Minat Riset", type: "textarea", required: true },
@@ -155,7 +155,7 @@ export const ENTITIES: EntityConfig[] = [
     label: "Sertifikasi",
     model: "certification",
     titleField: "title",
-    listColumns: ["title", "provider", "year"],
+    listColumns: ["title", "provider", "year", "fileUrl"],
     defaultTitle: "Sertifikasi & Pelatihan Profesional",
     fields: [
       { name: "title", label: "Nama Sertifikasi / Pelatihan", type: "text", required: true },
@@ -171,7 +171,7 @@ export const ENTITIES: EntityConfig[] = [
     label: "Tautan",
     model: "customLink",
     titleField: "label",
-    listColumns: ["label", "url"],
+    listColumns: ["label", "url", "fileUrl"],
     defaultTitle: "Tautan",
     fields: [
       { name: "label", label: "Label", type: "text", required: true },

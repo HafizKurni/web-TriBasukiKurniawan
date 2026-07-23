@@ -2,7 +2,7 @@
 
 import { useRef, useState, useTransition } from "react";
 import Link from "next/link";
-import { GripVertical, Pencil, Loader2 } from "lucide-react";
+import { GripVertical, Pencil, Loader2, Check } from "lucide-react";
 import { DeleteButton } from "./delete-button";
 import { deleteEntity, reorderEntities } from "@/lib/entity-actions";
 
@@ -12,10 +12,12 @@ export function ReorderableTable({
   slug,
   listColumns,
   initialRows,
+  fileField,
 }: {
   slug: string;
   listColumns: string[];
   initialRows: Row[];
+  fileField?: string;
 }) {
   const [rows, setRows] = useState(initialRows);
   const [isPending, startTransition] = useTransition();
@@ -63,7 +65,7 @@ export function ReorderableTable({
               <th className="p-4 font-semibold text-sm w-10" />
               {listColumns.map((col) => (
                 <th key={col} className="p-4 font-semibold text-sm capitalize">
-                  {col}
+                  {col === fileField ? "Lampiran" : col}
                 </th>
               ))}
               <th className="p-4 font-semibold text-sm text-right">Aksi</th>
@@ -96,7 +98,15 @@ export function ReorderableTable({
                 </td>
                 {listColumns.map((col) => (
                   <td key={col} className="p-4 text-slate-700 align-top max-w-md">
-                    <span className="line-clamp-2">{String(row[col] ?? "")}</span>
+                    {col === fileField ? (
+                      row[col] ? (
+                        <Check className="w-4 h-4 text-green-600" />
+                      ) : (
+                        <span className="text-slate-300">—</span>
+                      )
+                    ) : (
+                      <span className="line-clamp-2">{String(row[col] ?? "")}</span>
+                    )}
                   </td>
                 ))}
                 <td className="p-4 text-right whitespace-nowrap align-top">

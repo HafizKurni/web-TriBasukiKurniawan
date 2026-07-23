@@ -48,7 +48,12 @@ export default async function EntityListPage({
         urutan tampil di situs publik.
       </p>
 
-      <ReorderableTable slug={slug} listColumns={entity.listColumns} initialRows={rows} />
+      <ReorderableTable
+        slug={slug}
+        listColumns={entity.listColumns}
+        initialRows={rows}
+        fileField={entity.fields.find((f) => f.type === "file")?.name}
+      />
     </div>
   );
 }

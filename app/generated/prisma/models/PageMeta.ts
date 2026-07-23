@@ -20,46 +20,70 @@ export type PageMetaModel = runtime.Types.Result.DefaultSelection<Prisma.$PageMe
 
 export type AggregatePageMeta = {
   _count: PageMetaCountAggregateOutputType | null
+  _avg: PageMetaAvgAggregateOutputType | null
+  _sum: PageMetaSumAggregateOutputType | null
   _min: PageMetaMinAggregateOutputType | null
   _max: PageMetaMaxAggregateOutputType | null
+}
+
+export type PageMetaAvgAggregateOutputType = {
+  sortOrder: number | null
+}
+
+export type PageMetaSumAggregateOutputType = {
+  sortOrder: number | null
 }
 
 export type PageMetaMinAggregateOutputType = {
   slug: string | null
   title: string | null
   description: string | null
+  sortOrder: number | null
 }
 
 export type PageMetaMaxAggregateOutputType = {
   slug: string | null
   title: string | null
   description: string | null
+  sortOrder: number | null
 }
 
 export type PageMetaCountAggregateOutputType = {
   slug: number
   title: number
   description: number
+  sortOrder: number
   _all: number
 }
 
+
+export type PageMetaAvgAggregateInputType = {
+  sortOrder?: true
+}
+
+export type PageMetaSumAggregateInputType = {
+  sortOrder?: true
+}
 
 export type PageMetaMinAggregateInputType = {
   slug?: true
   title?: true
   description?: true
+  sortOrder?: true
 }
 
 export type PageMetaMaxAggregateInputType = {
   slug?: true
   title?: true
   description?: true
+  sortOrder?: true
 }
 
 export type PageMetaCountAggregateInputType = {
   slug?: true
   title?: true
   description?: true
+  sortOrder?: true
   _all?: true
 }
 
@@ -101,6 +125,18 @@ export type PageMetaAggregateArgs<ExtArgs extends runtime.Types.Extensions.Inter
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
+   * Select which fields to average
+  **/
+  _avg?: PageMetaAvgAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
+   * Select which fields to sum
+  **/
+  _sum?: PageMetaSumAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
    * Select which fields to find the minimum value
   **/
   _min?: PageMetaMinAggregateInputType
@@ -131,6 +167,8 @@ export type PageMetaGroupByArgs<ExtArgs extends runtime.Types.Extensions.Interna
   take?: number
   skip?: number
   _count?: PageMetaCountAggregateInputType | true
+  _avg?: PageMetaAvgAggregateInputType
+  _sum?: PageMetaSumAggregateInputType
   _min?: PageMetaMinAggregateInputType
   _max?: PageMetaMaxAggregateInputType
 }
@@ -139,7 +177,10 @@ export type PageMetaGroupByOutputType = {
   slug: string
   title: string | null
   description: string | null
+  sortOrder: number
   _count: PageMetaCountAggregateOutputType | null
+  _avg: PageMetaAvgAggregateOutputType | null
+  _sum: PageMetaSumAggregateOutputType | null
   _min: PageMetaMinAggregateOutputType | null
   _max: PageMetaMaxAggregateOutputType | null
 }
@@ -166,12 +207,14 @@ export type PageMetaWhereInput = {
   slug?: Prisma.StringFilter<"PageMeta"> | string
   title?: Prisma.StringNullableFilter<"PageMeta"> | string | null
   description?: Prisma.StringNullableFilter<"PageMeta"> | string | null
+  sortOrder?: Prisma.IntFilter<"PageMeta"> | number
 }
 
 export type PageMetaOrderByWithRelationInput = {
   slug?: Prisma.SortOrder
   title?: Prisma.SortOrderInput | Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
+  sortOrder?: Prisma.SortOrder
 }
 
 export type PageMetaWhereUniqueInput = Prisma.AtLeast<{
@@ -181,15 +224,19 @@ export type PageMetaWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.PageMetaWhereInput | Prisma.PageMetaWhereInput[]
   title?: Prisma.StringNullableFilter<"PageMeta"> | string | null
   description?: Prisma.StringNullableFilter<"PageMeta"> | string | null
+  sortOrder?: Prisma.IntFilter<"PageMeta"> | number
 }, "slug">
 
 export type PageMetaOrderByWithAggregationInput = {
   slug?: Prisma.SortOrder
   title?: Prisma.SortOrderInput | Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
+  sortOrder?: Prisma.SortOrder
   _count?: Prisma.PageMetaCountOrderByAggregateInput
+  _avg?: Prisma.PageMetaAvgOrderByAggregateInput
   _max?: Prisma.PageMetaMaxOrderByAggregateInput
   _min?: Prisma.PageMetaMinOrderByAggregateInput
+  _sum?: Prisma.PageMetaSumOrderByAggregateInput
 }
 
 export type PageMetaScalarWhereWithAggregatesInput = {
@@ -199,66 +246,85 @@ export type PageMetaScalarWhereWithAggregatesInput = {
   slug?: Prisma.StringWithAggregatesFilter<"PageMeta"> | string
   title?: Prisma.StringNullableWithAggregatesFilter<"PageMeta"> | string | null
   description?: Prisma.StringNullableWithAggregatesFilter<"PageMeta"> | string | null
+  sortOrder?: Prisma.IntWithAggregatesFilter<"PageMeta"> | number
 }
 
 export type PageMetaCreateInput = {
   slug: string
   title?: string | null
   description?: string | null
+  sortOrder?: number
 }
 
 export type PageMetaUncheckedCreateInput = {
   slug: string
   title?: string | null
   description?: string | null
+  sortOrder?: number
 }
 
 export type PageMetaUpdateInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type PageMetaUncheckedUpdateInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type PageMetaCreateManyInput = {
   slug: string
   title?: string | null
   description?: string | null
+  sortOrder?: number
 }
 
 export type PageMetaUpdateManyMutationInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type PageMetaUncheckedUpdateManyInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type PageMetaCountOrderByAggregateInput = {
   slug?: Prisma.SortOrder
   title?: Prisma.SortOrder
   description?: Prisma.SortOrder
+  sortOrder?: Prisma.SortOrder
+}
+
+export type PageMetaAvgOrderByAggregateInput = {
+  sortOrder?: Prisma.SortOrder
 }
 
 export type PageMetaMaxOrderByAggregateInput = {
   slug?: Prisma.SortOrder
   title?: Prisma.SortOrder
   description?: Prisma.SortOrder
+  sortOrder?: Prisma.SortOrder
 }
 
 export type PageMetaMinOrderByAggregateInput = {
   slug?: Prisma.SortOrder
   title?: Prisma.SortOrder
   description?: Prisma.SortOrder
+  sortOrder?: Prisma.SortOrder
+}
+
+export type PageMetaSumOrderByAggregateInput = {
+  sortOrder?: Prisma.SortOrder
 }
 
 
@@ -267,27 +333,31 @@ export type PageMetaSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   slug?: boolean
   title?: boolean
   description?: boolean
+  sortOrder?: boolean
 }, ExtArgs["result"]["pageMeta"]>
 
 export type PageMetaSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   slug?: boolean
   title?: boolean
   description?: boolean
+  sortOrder?: boolean
 }, ExtArgs["result"]["pageMeta"]>
 
 export type PageMetaSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   slug?: boolean
   title?: boolean
   description?: boolean
+  sortOrder?: boolean
 }, ExtArgs["result"]["pageMeta"]>
 
 export type PageMetaSelectScalar = {
   slug?: boolean
   title?: boolean
   description?: boolean
+  sortOrder?: boolean
 }
 
-export type PageMetaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"slug" | "title" | "description", ExtArgs["result"]["pageMeta"]>
+export type PageMetaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"slug" | "title" | "description" | "sortOrder", ExtArgs["result"]["pageMeta"]>
 
 export type $PageMetaPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "PageMeta"
@@ -296,6 +366,7 @@ export type $PageMetaPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     slug: string
     title: string | null
     description: string | null
+    sortOrder: number
   }, ExtArgs["result"]["pageMeta"]>
   composites: {}
 }
@@ -722,6 +793,7 @@ export interface PageMetaFieldRefs {
   readonly slug: Prisma.FieldRef<"PageMeta", 'String'>
   readonly title: Prisma.FieldRef<"PageMeta", 'String'>
   readonly description: Prisma.FieldRef<"PageMeta", 'String'>
+  readonly sortOrder: Prisma.FieldRef<"PageMeta", 'Int'>
 }
     
 
