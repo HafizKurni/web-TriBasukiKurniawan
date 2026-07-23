@@ -31,6 +31,30 @@ export async function getMenuOrder(): Promise<{ slug: string; title: string }[]>
     .map(({ slug, title }) => ({ slug, title }));
 }
 
+const PUBLIC_NAV_ENTITY_MAP: Record<string, string[]> = {
+  "/pendidikan": ["education"],
+  "/pengalaman": ["experience"],
+  "/pengajaran": ["teaching"],
+  "/penelitian": ["research-interest", "publication"],
+  "/pengabdian": ["project"],
+  "/penunjang": ["skill", "certification"],
+};
+
+export async function getPublicNavOrder(): Promise<string[]> {
+  const metas = await prisma.pageMeta.findMany();
+  const metaBySlug = new Map(metas.map((m) => [m.slug, m]));
+  const rankOf = (slug: string) => {
+    const index = ENTITIES.findIndex((e) => e.slug === slug);
+    return metaBySlug.get(slug)?.sortOrder ?? index;
+  };
+
+  return Object.keys(PUBLIC_NAV_ENTITY_MAP).sort((a, b) => {
+    const rankA = Math.min(...PUBLIC_NAV_ENTITY_MAP[a].map(rankOf));
+    const rankB = Math.min(...PUBLIC_NAV_ENTITY_MAP[b].map(rankOf));
+    return rankA - rankB;
+  });
+}
+
 export async function reorderMenus(orderedSlugs: string[]) {
   await requireAdmin();
 

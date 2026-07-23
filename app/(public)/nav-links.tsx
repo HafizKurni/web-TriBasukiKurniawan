@@ -14,23 +14,42 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
-const items: { href: string; label: string; icon: LucideIcon }[] = [
-  { href: "/", label: "Beranda", icon: Home },
-  { href: "/pendidikan", label: "Pendidikan", icon: GraduationCap },
-  { href: "/pengalaman", label: "Pengalaman Kerja", icon: Briefcase },
-  { href: "/pengajaran", label: "Pengajaran", icon: Presentation },
-  { href: "/penelitian", label: "Penelitian", icon: FlaskConical },
-  { href: "/pengabdian", label: "Pengabdian", icon: HandHeart },
-  { href: "/penunjang", label: "Penunjang", icon: Award },
-  { href: "/kontak", label: "Kontak", icon: Mail },
+const ITEMS_BY_HREF: Record<string, { label: string; icon: LucideIcon }> = {
+  "/": { label: "Beranda", icon: Home },
+  "/pendidikan": { label: "Pendidikan", icon: GraduationCap },
+  "/pengalaman": { label: "Pengalaman Kerja", icon: Briefcase },
+  "/pengajaran": { label: "Pengajaran", icon: Presentation },
+  "/penelitian": { label: "Penelitian", icon: FlaskConical },
+  "/pengabdian": { label: "Pengabdian", icon: HandHeart },
+  "/penunjang": { label: "Penunjang", icon: Award },
+  "/kontak": { label: "Kontak", icon: Mail },
+};
+
+const DEFAULT_ORDER = [
+  "/pendidikan",
+  "/pengalaman",
+  "/pengajaran",
+  "/penelitian",
+  "/pengabdian",
+  "/penunjang",
 ];
 
-export function NavLinks({ onNavigate }: { onNavigate?: () => void }) {
+export function NavLinks({
+  onNavigate,
+  order = DEFAULT_ORDER,
+}: {
+  onNavigate?: () => void;
+  order?: string[];
+}) {
   const pathname = usePathname();
+  const hrefs = ["/", ...order, "/kontak"];
 
   return (
     <ul className="space-y-1 px-4">
-      {items.map(({ href, label, icon: Icon }) => {
+      {hrefs.map((href) => {
+        const item = ITEMS_BY_HREF[href];
+        if (!item) return null;
+        const { label, icon: Icon } = item;
         const active = pathname === href;
         return (
           <li key={href}>

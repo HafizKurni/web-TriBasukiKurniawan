@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/db";
+import { getPublicNavOrder } from "@/lib/page-meta-actions";
 import { NavLinks } from "./nav-links";
 import { MobileNav } from "./mobile-nav";
 import { AdminFab } from "./admin-fab";
@@ -12,7 +13,7 @@ export default async function PublicLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const profile = await prisma.profile.findFirst();
+  const [profile, navOrder] = await Promise.all([prisma.profile.findFirst(), getPublicNavOrder()]);
   const name = profile?.name ?? "Tri Basuki Kurniawan";
   const initials = name
     .split(" ")
@@ -39,7 +40,7 @@ export default async function PublicLayout({
         </div>
 
         <nav className="flex-1 overflow-y-auto py-4">
-          <NavLinks />
+          <NavLinks order={navOrder} />
         </nav>
 
         <div className="p-4 border-t border-slate-700 text-xs text-slate-500 text-center">
@@ -47,7 +48,7 @@ export default async function PublicLayout({
         </div>
       </aside>
 
-      <MobileNav name={name} />
+      <MobileNav name={name} order={navOrder} />
 
       <main className="flex-1 bg-slate-50 mt-14 md:mt-0">
         <div className="p-4 md:p-8">{children}</div>

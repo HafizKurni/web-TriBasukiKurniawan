@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { NavLinks } from "./nav-links";
 
-export function MobileNav({ name }: { name: string }) {
+export function MobileNav({ name, order }: { name: string; order?: string[] }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -32,7 +32,7 @@ export function MobileNav({ name }: { name: string }) {
             <h2 className="text-white font-bold px-4 text-center">{name}</h2>
           </div>
           <nav className="flex-1 w-full overflow-y-auto">
-            <NavLinks onNavigate={() => setOpen(false)} />
+            <NavLinks onNavigate={() => setOpen(false)} order={order} />
           </nav>
         </div>
       )}
