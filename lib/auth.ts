@@ -41,7 +41,10 @@ export async function createSession(payload: SessionPayload) {
   const cookieStore = await cookies();
   cookieStore.set(COOKIE_NAME, session, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
+    // Cookie "Secure" hanya dikirim browser lewat HTTPS. Default false supaya
+    // login tetap jalan saat diakses via HTTP/IP langsung (mis. VPS tanpa domain+SSL).
+    // Set COOKIE_SECURE=true di .env begitu situs sudah pakai HTTPS.
+    secure: process.env.COOKIE_SECURE === "true",
     expires: expiresAt,
     sameSite: "lax",
     path: "/",
