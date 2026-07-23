@@ -1,5 +1,5 @@
 import type { FieldConfig } from "@/lib/entities";
-import { ImageUploadField } from "./image-upload-field";
+import { FileUploadField } from "./file-upload-field";
 
 export function EntityFormFields({
   fields,
@@ -14,9 +14,9 @@ export function EntityFormFields({
         const value = values?.[field.name];
         const star = field.required ? <span className="text-red-500">*</span> : null;
 
-        if (field.type === "image") {
+        if (field.type === "file") {
           return (
-            <ImageUploadField
+            <FileUploadField
               key={field.name}
               name={field.name}
               label={field.label}

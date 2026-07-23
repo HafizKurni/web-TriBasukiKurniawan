@@ -72,3 +72,8 @@ export type CustomLink = Prisma.CustomLinkModel
  * 
  */
 export type AdminUser = Prisma.AdminUserModel
+/**
+ * Model PageMeta
+ * 
+ */
+export type PageMeta = Prisma.PageMetaModel

@@ -46,7 +46,7 @@ export async function createEntity(slug: string, formData: FormData) {
 
   revalidatePath(`/admin/${slug}`);
   revalidatePath("/", "layout");
-  redirect(`/admin/${slug}`);
+  redirect(`/admin/${slug}?saved=1`);
 }
 
 export async function updateEntity(slug: string, id: number, formData: FormData) {
@@ -61,7 +61,7 @@ export async function updateEntity(slug: string, id: number, formData: FormData)
 
   revalidatePath(`/admin/${slug}`);
   revalidatePath("/", "layout");
-  redirect(`/admin/${slug}`);
+  redirect(`/admin/${slug}?saved=1`);
 }
 
 export async function deleteEntity(slug: string, id: number) {

@@ -44,5 +44,5 @@ export async function updateProfile(formData: FormData) {
 
   revalidatePath("/admin/profile");
   revalidatePath("/", "layout");
-  redirect("/admin/profile");
+  redirect("/admin/profile?saved=1");
 }

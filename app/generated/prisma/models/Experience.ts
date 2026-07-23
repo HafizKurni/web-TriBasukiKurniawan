@@ -42,6 +42,8 @@ export type ExperienceMinAggregateOutputType = {
   institution: string | null
   period: string | null
   current: boolean | null
+  link: string | null
+  fileUrl: string | null
   sortOrder: number | null
 }
 
@@ -51,6 +53,8 @@ export type ExperienceMaxAggregateOutputType = {
   institution: string | null
   period: string | null
   current: boolean | null
+  link: string | null
+  fileUrl: string | null
   sortOrder: number | null
 }
 
@@ -60,6 +64,8 @@ export type ExperienceCountAggregateOutputType = {
   institution: number
   period: number
   current: number
+  link: number
+  fileUrl: number
   sortOrder: number
   _all: number
 }
@@ -81,6 +87,8 @@ export type ExperienceMinAggregateInputType = {
   institution?: true
   period?: true
   current?: true
+  link?: true
+  fileUrl?: true
   sortOrder?: true
 }
 
@@ -90,6 +98,8 @@ export type ExperienceMaxAggregateInputType = {
   institution?: true
   period?: true
   current?: true
+  link?: true
+  fileUrl?: true
   sortOrder?: true
 }
 
@@ -99,6 +109,8 @@ export type ExperienceCountAggregateInputType = {
   institution?: true
   period?: true
   current?: true
+  link?: true
+  fileUrl?: true
   sortOrder?: true
   _all?: true
 }
@@ -195,6 +207,8 @@ export type ExperienceGroupByOutputType = {
   institution: string
   period: string
   current: boolean
+  link: string | null
+  fileUrl: string | null
   sortOrder: number
   _count: ExperienceCountAggregateOutputType | null
   _avg: ExperienceAvgAggregateOutputType | null
@@ -227,6 +241,8 @@ export type ExperienceWhereInput = {
   institution?: Prisma.StringFilter<"Experience"> | string
   period?: Prisma.StringFilter<"Experience"> | string
   current?: Prisma.BoolFilter<"Experience"> | boolean
+  link?: Prisma.StringNullableFilter<"Experience"> | string | null
+  fileUrl?: Prisma.StringNullableFilter<"Experience"> | string | null
   sortOrder?: Prisma.IntFilter<"Experience"> | number
 }
 
@@ -236,6 +252,8 @@ export type ExperienceOrderByWithRelationInput = {
   institution?: Prisma.SortOrder
   period?: Prisma.SortOrder
   current?: Prisma.SortOrder
+  link?: Prisma.SortOrderInput | Prisma.SortOrder
+  fileUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -248,6 +266,8 @@ export type ExperienceWhereUniqueInput = Prisma.AtLeast<{
   institution?: Prisma.StringFilter<"Experience"> | string
   period?: Prisma.StringFilter<"Experience"> | string
   current?: Prisma.BoolFilter<"Experience"> | boolean
+  link?: Prisma.StringNullableFilter<"Experience"> | string | null
+  fileUrl?: Prisma.StringNullableFilter<"Experience"> | string | null
   sortOrder?: Prisma.IntFilter<"Experience"> | number
 }, "id">
 
@@ -257,6 +277,8 @@ export type ExperienceOrderByWithAggregationInput = {
   institution?: Prisma.SortOrder
   period?: Prisma.SortOrder
   current?: Prisma.SortOrder
+  link?: Prisma.SortOrderInput | Prisma.SortOrder
+  fileUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
   _count?: Prisma.ExperienceCountOrderByAggregateInput
   _avg?: Prisma.ExperienceAvgOrderByAggregateInput
@@ -274,6 +296,8 @@ export type ExperienceScalarWhereWithAggregatesInput = {
   institution?: Prisma.StringWithAggregatesFilter<"Experience"> | string
   period?: Prisma.StringWithAggregatesFilter<"Experience"> | string
   current?: Prisma.BoolWithAggregatesFilter<"Experience"> | boolean
+  link?: Prisma.StringNullableWithAggregatesFilter<"Experience"> | string | null
+  fileUrl?: Prisma.StringNullableWithAggregatesFilter<"Experience"> | string | null
   sortOrder?: Prisma.IntWithAggregatesFilter<"Experience"> | number
 }
 
@@ -282,6 +306,8 @@ export type ExperienceCreateInput = {
   institution: string
   period: string
   current?: boolean
+  link?: string | null
+  fileUrl?: string | null
   sortOrder?: number
 }
 
@@ -291,6 +317,8 @@ export type ExperienceUncheckedCreateInput = {
   institution: string
   period: string
   current?: boolean
+  link?: string | null
+  fileUrl?: string | null
   sortOrder?: number
 }
 
@@ -299,6 +327,8 @@ export type ExperienceUpdateInput = {
   institution?: Prisma.StringFieldUpdateOperationsInput | string
   period?: Prisma.StringFieldUpdateOperationsInput | string
   current?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -308,6 +338,8 @@ export type ExperienceUncheckedUpdateInput = {
   institution?: Prisma.StringFieldUpdateOperationsInput | string
   period?: Prisma.StringFieldUpdateOperationsInput | string
   current?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -317,6 +349,8 @@ export type ExperienceCreateManyInput = {
   institution: string
   period: string
   current?: boolean
+  link?: string | null
+  fileUrl?: string | null
   sortOrder?: number
 }
 
@@ -325,6 +359,8 @@ export type ExperienceUpdateManyMutationInput = {
   institution?: Prisma.StringFieldUpdateOperationsInput | string
   period?: Prisma.StringFieldUpdateOperationsInput | string
   current?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -334,6 +370,8 @@ export type ExperienceUncheckedUpdateManyInput = {
   institution?: Prisma.StringFieldUpdateOperationsInput | string
   period?: Prisma.StringFieldUpdateOperationsInput | string
   current?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -343,6 +381,8 @@ export type ExperienceCountOrderByAggregateInput = {
   institution?: Prisma.SortOrder
   period?: Prisma.SortOrder
   current?: Prisma.SortOrder
+  link?: Prisma.SortOrder
+  fileUrl?: Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -357,6 +397,8 @@ export type ExperienceMaxOrderByAggregateInput = {
   institution?: Prisma.SortOrder
   period?: Prisma.SortOrder
   current?: Prisma.SortOrder
+  link?: Prisma.SortOrder
+  fileUrl?: Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -366,6 +408,8 @@ export type ExperienceMinOrderByAggregateInput = {
   institution?: Prisma.SortOrder
   period?: Prisma.SortOrder
   current?: Prisma.SortOrder
+  link?: Prisma.SortOrder
+  fileUrl?: Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -386,6 +430,8 @@ export type ExperienceSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   institution?: boolean
   period?: boolean
   current?: boolean
+  link?: boolean
+  fileUrl?: boolean
   sortOrder?: boolean
 }, ExtArgs["result"]["experience"]>
 
@@ -395,6 +441,8 @@ export type ExperienceSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
   institution?: boolean
   period?: boolean
   current?: boolean
+  link?: boolean
+  fileUrl?: boolean
   sortOrder?: boolean
 }, ExtArgs["result"]["experience"]>
 
@@ -404,6 +452,8 @@ export type ExperienceSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
   institution?: boolean
   period?: boolean
   current?: boolean
+  link?: boolean
+  fileUrl?: boolean
   sortOrder?: boolean
 }, ExtArgs["result"]["experience"]>
 
@@ -413,10 +463,12 @@ export type ExperienceSelectScalar = {
   institution?: boolean
   period?: boolean
   current?: boolean
+  link?: boolean
+  fileUrl?: boolean
   sortOrder?: boolean
 }
 
-export type ExperienceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "position" | "institution" | "period" | "current" | "sortOrder", ExtArgs["result"]["experience"]>
+export type ExperienceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "position" | "institution" | "period" | "current" | "link" | "fileUrl" | "sortOrder", ExtArgs["result"]["experience"]>
 
 export type $ExperiencePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Experience"
@@ -427,6 +479,8 @@ export type $ExperiencePayload<ExtArgs extends runtime.Types.Extensions.Internal
     institution: string
     period: string
     current: boolean
+    link: string | null
+    fileUrl: string | null
     sortOrder: number
   }, ExtArgs["result"]["experience"]>
   composites: {}
@@ -856,6 +910,8 @@ export interface ExperienceFieldRefs {
   readonly institution: Prisma.FieldRef<"Experience", 'String'>
   readonly period: Prisma.FieldRef<"Experience", 'String'>
   readonly current: Prisma.FieldRef<"Experience", 'Boolean'>
+  readonly link: Prisma.FieldRef<"Experience", 'String'>
+  readonly fileUrl: Prisma.FieldRef<"Experience", 'String'>
   readonly sortOrder: Prisma.FieldRef<"Experience", 'Int'>
 }
     

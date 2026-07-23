@@ -1,7 +1,9 @@
+import { Suspense } from "react";
 import { prisma } from "@/lib/db";
 import { requireAdmin } from "@/lib/dal";
 import { updateProfile } from "./actions";
-import { ImageUploadField } from "../../_components/image-upload-field";
+import { FileUploadField } from "../../_components/file-upload-field";
+import { SavedToast } from "../../_components/saved-toast";
 
 export default async function AdminProfilePage() {
   await requireAdmin();
@@ -9,10 +11,13 @@ export default async function AdminProfilePage() {
 
   return (
     <div className="max-w-2xl">
+      <Suspense fallback={null}>
+        <SavedToast />
+      </Suspense>
       <h1 className="text-2xl font-bold text-slate-800 mb-6">Edit Profil</h1>
 
       <form action={updateProfile} className="bg-white rounded-xl border border-slate-200 shadow-sm p-6 space-y-4">
-        <ImageUploadField name="photoUrl" label="Foto Profil" defaultValue={profile?.photoUrl} />
+        <FileUploadField name="photoUrl" label="Foto Profil" defaultValue={profile?.photoUrl} />
 
         <div>
           <label className="block text-sm font-medium text-slate-700 mb-1">

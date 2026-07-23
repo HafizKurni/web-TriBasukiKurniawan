@@ -15,9 +15,10 @@ services:
       # Set "true" di .env HANYA setelah situs diakses lewat HTTPS (domain+SSL).
       # Kalau diaktifkan sementara masih akses via HTTP/IP langsung, login admin akan gagal.
       COOKIE_SECURE: ${COOKIE_SECURE:-false}
+      UPLOADS_DIR: /app/uploads
     volumes:
       - db_data:/app/data
-      - uploads_data:/app/public/uploads
+      - uploads_data:/app/uploads
 
 volumes:
   db_data:

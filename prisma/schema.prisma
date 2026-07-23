@@ -30,6 +30,8 @@ model Education {
   major       String?
   period      String
   location    String?
+  link        String?
+  fileUrl     String?
   sortOrder   Int     @default(0)
 }
 
@@ -39,6 +41,8 @@ model Experience {
   institution String
   period      String
   current     Boolean @default(false)
+  link        String?
+  fileUrl     String?
   sortOrder   Int     @default(0)
 }
 
@@ -49,6 +53,7 @@ model Teaching {
   year        String
   description String?
   link        String?
+  fileUrl     String?
   sortOrder   Int     @default(0)
 }
 
@@ -61,6 +66,7 @@ model Publication {
   venue     String?
   details   String?
   link      String?
+  fileUrl   String?
   sortOrder Int     @default(0)
 }
 
@@ -76,16 +82,20 @@ model Project {
 }
 
 model Skill {
-  id        Int    @id @default(autoincrement())
+  id        Int     @id @default(autoincrement())
   category  String
   items     String
-  sortOrder Int    @default(0)
+  link      String?
+  fileUrl   String?
+  sortOrder Int     @default(0)
 }
 
 model ResearchInterest {
-  id        Int    @id @default(autoincrement())
+  id        Int     @id @default(autoincrement())
   text      String
-  sortOrder Int    @default(0)
+  link      String?
+  fileUrl   String?
+  sortOrder Int     @default(0)
 }
 
 model Certification {
@@ -93,6 +103,8 @@ model Certification {
   title     String
   year      String
   provider  String?
+  link      String?
+  fileUrl   String?
   sortOrder Int     @default(0)
 }
 
@@ -101,6 +113,7 @@ model CustomLink {
   label     String
   url       String
   icon      String?
+  fileUrl   String?
   sortOrder Int     @default(0)
 }
 
@@ -108,4 +121,10 @@ model AdminUser {
   id           Int    @id @default(autoincrement())
   username     String @unique
   passwordHash String
+}
+
+model PageMeta {
+  slug        String  @id
+  title       String?
+  description String?
 }

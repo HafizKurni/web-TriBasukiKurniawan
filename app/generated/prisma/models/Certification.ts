@@ -41,6 +41,8 @@ export type CertificationMinAggregateOutputType = {
   title: string | null
   year: string | null
   provider: string | null
+  link: string | null
+  fileUrl: string | null
   sortOrder: number | null
 }
 
@@ -49,6 +51,8 @@ export type CertificationMaxAggregateOutputType = {
   title: string | null
   year: string | null
   provider: string | null
+  link: string | null
+  fileUrl: string | null
   sortOrder: number | null
 }
 
@@ -57,6 +61,8 @@ export type CertificationCountAggregateOutputType = {
   title: number
   year: number
   provider: number
+  link: number
+  fileUrl: number
   sortOrder: number
   _all: number
 }
@@ -77,6 +83,8 @@ export type CertificationMinAggregateInputType = {
   title?: true
   year?: true
   provider?: true
+  link?: true
+  fileUrl?: true
   sortOrder?: true
 }
 
@@ -85,6 +93,8 @@ export type CertificationMaxAggregateInputType = {
   title?: true
   year?: true
   provider?: true
+  link?: true
+  fileUrl?: true
   sortOrder?: true
 }
 
@@ -93,6 +103,8 @@ export type CertificationCountAggregateInputType = {
   title?: true
   year?: true
   provider?: true
+  link?: true
+  fileUrl?: true
   sortOrder?: true
   _all?: true
 }
@@ -188,6 +200,8 @@ export type CertificationGroupByOutputType = {
   title: string
   year: string
   provider: string | null
+  link: string | null
+  fileUrl: string | null
   sortOrder: number
   _count: CertificationCountAggregateOutputType | null
   _avg: CertificationAvgAggregateOutputType | null
@@ -219,6 +233,8 @@ export type CertificationWhereInput = {
   title?: Prisma.StringFilter<"Certification"> | string
   year?: Prisma.StringFilter<"Certification"> | string
   provider?: Prisma.StringNullableFilter<"Certification"> | string | null
+  link?: Prisma.StringNullableFilter<"Certification"> | string | null
+  fileUrl?: Prisma.StringNullableFilter<"Certification"> | string | null
   sortOrder?: Prisma.IntFilter<"Certification"> | number
 }
 
@@ -227,6 +243,8 @@ export type CertificationOrderByWithRelationInput = {
   title?: Prisma.SortOrder
   year?: Prisma.SortOrder
   provider?: Prisma.SortOrderInput | Prisma.SortOrder
+  link?: Prisma.SortOrderInput | Prisma.SortOrder
+  fileUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -238,6 +256,8 @@ export type CertificationWhereUniqueInput = Prisma.AtLeast<{
   title?: Prisma.StringFilter<"Certification"> | string
   year?: Prisma.StringFilter<"Certification"> | string
   provider?: Prisma.StringNullableFilter<"Certification"> | string | null
+  link?: Prisma.StringNullableFilter<"Certification"> | string | null
+  fileUrl?: Prisma.StringNullableFilter<"Certification"> | string | null
   sortOrder?: Prisma.IntFilter<"Certification"> | number
 }, "id">
 
@@ -246,6 +266,8 @@ export type CertificationOrderByWithAggregationInput = {
   title?: Prisma.SortOrder
   year?: Prisma.SortOrder
   provider?: Prisma.SortOrderInput | Prisma.SortOrder
+  link?: Prisma.SortOrderInput | Prisma.SortOrder
+  fileUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
   _count?: Prisma.CertificationCountOrderByAggregateInput
   _avg?: Prisma.CertificationAvgOrderByAggregateInput
@@ -262,6 +284,8 @@ export type CertificationScalarWhereWithAggregatesInput = {
   title?: Prisma.StringWithAggregatesFilter<"Certification"> | string
   year?: Prisma.StringWithAggregatesFilter<"Certification"> | string
   provider?: Prisma.StringNullableWithAggregatesFilter<"Certification"> | string | null
+  link?: Prisma.StringNullableWithAggregatesFilter<"Certification"> | string | null
+  fileUrl?: Prisma.StringNullableWithAggregatesFilter<"Certification"> | string | null
   sortOrder?: Prisma.IntWithAggregatesFilter<"Certification"> | number
 }
 
@@ -269,6 +293,8 @@ export type CertificationCreateInput = {
   title: string
   year: string
   provider?: string | null
+  link?: string | null
+  fileUrl?: string | null
   sortOrder?: number
 }
 
@@ -277,6 +303,8 @@ export type CertificationUncheckedCreateInput = {
   title: string
   year: string
   provider?: string | null
+  link?: string | null
+  fileUrl?: string | null
   sortOrder?: number
 }
 
@@ -284,6 +312,8 @@ export type CertificationUpdateInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   year?: Prisma.StringFieldUpdateOperationsInput | string
   provider?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -292,6 +322,8 @@ export type CertificationUncheckedUpdateInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   year?: Prisma.StringFieldUpdateOperationsInput | string
   provider?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -300,6 +332,8 @@ export type CertificationCreateManyInput = {
   title: string
   year: string
   provider?: string | null
+  link?: string | null
+  fileUrl?: string | null
   sortOrder?: number
 }
 
@@ -307,6 +341,8 @@ export type CertificationUpdateManyMutationInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   year?: Prisma.StringFieldUpdateOperationsInput | string
   provider?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -315,6 +351,8 @@ export type CertificationUncheckedUpdateManyInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   year?: Prisma.StringFieldUpdateOperationsInput | string
   provider?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -323,6 +361,8 @@ export type CertificationCountOrderByAggregateInput = {
   title?: Prisma.SortOrder
   year?: Prisma.SortOrder
   provider?: Prisma.SortOrder
+  link?: Prisma.SortOrder
+  fileUrl?: Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -336,6 +376,8 @@ export type CertificationMaxOrderByAggregateInput = {
   title?: Prisma.SortOrder
   year?: Prisma.SortOrder
   provider?: Prisma.SortOrder
+  link?: Prisma.SortOrder
+  fileUrl?: Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -344,6 +386,8 @@ export type CertificationMinOrderByAggregateInput = {
   title?: Prisma.SortOrder
   year?: Prisma.SortOrder
   provider?: Prisma.SortOrder
+  link?: Prisma.SortOrder
+  fileUrl?: Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -359,6 +403,8 @@ export type CertificationSelect<ExtArgs extends runtime.Types.Extensions.Interna
   title?: boolean
   year?: boolean
   provider?: boolean
+  link?: boolean
+  fileUrl?: boolean
   sortOrder?: boolean
 }, ExtArgs["result"]["certification"]>
 
@@ -367,6 +413,8 @@ export type CertificationSelectCreateManyAndReturn<ExtArgs extends runtime.Types
   title?: boolean
   year?: boolean
   provider?: boolean
+  link?: boolean
+  fileUrl?: boolean
   sortOrder?: boolean
 }, ExtArgs["result"]["certification"]>
 
@@ -375,6 +423,8 @@ export type CertificationSelectUpdateManyAndReturn<ExtArgs extends runtime.Types
   title?: boolean
   year?: boolean
   provider?: boolean
+  link?: boolean
+  fileUrl?: boolean
   sortOrder?: boolean
 }, ExtArgs["result"]["certification"]>
 
@@ -383,10 +433,12 @@ export type CertificationSelectScalar = {
   title?: boolean
   year?: boolean
   provider?: boolean
+  link?: boolean
+  fileUrl?: boolean
   sortOrder?: boolean
 }
 
-export type CertificationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "year" | "provider" | "sortOrder", ExtArgs["result"]["certification"]>
+export type CertificationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "year" | "provider" | "link" | "fileUrl" | "sortOrder", ExtArgs["result"]["certification"]>
 
 export type $CertificationPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Certification"
@@ -396,6 +448,8 @@ export type $CertificationPayload<ExtArgs extends runtime.Types.Extensions.Inter
     title: string
     year: string
     provider: string | null
+    link: string | null
+    fileUrl: string | null
     sortOrder: number
   }, ExtArgs["result"]["certification"]>
   composites: {}
@@ -824,6 +878,8 @@ export interface CertificationFieldRefs {
   readonly title: Prisma.FieldRef<"Certification", 'String'>
   readonly year: Prisma.FieldRef<"Certification", 'String'>
   readonly provider: Prisma.FieldRef<"Certification", 'String'>
+  readonly link: Prisma.FieldRef<"Certification", 'String'>
+  readonly fileUrl: Prisma.FieldRef<"Certification", 'String'>
   readonly sortOrder: Prisma.FieldRef<"Certification", 'Int'>
 }
     

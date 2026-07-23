@@ -40,6 +40,8 @@ export type SkillMinAggregateOutputType = {
   id: number | null
   category: string | null
   items: string | null
+  link: string | null
+  fileUrl: string | null
   sortOrder: number | null
 }
 
@@ -47,6 +49,8 @@ export type SkillMaxAggregateOutputType = {
   id: number | null
   category: string | null
   items: string | null
+  link: string | null
+  fileUrl: string | null
   sortOrder: number | null
 }
 
@@ -54,6 +58,8 @@ export type SkillCountAggregateOutputType = {
   id: number
   category: number
   items: number
+  link: number
+  fileUrl: number
   sortOrder: number
   _all: number
 }
@@ -73,6 +79,8 @@ export type SkillMinAggregateInputType = {
   id?: true
   category?: true
   items?: true
+  link?: true
+  fileUrl?: true
   sortOrder?: true
 }
 
@@ -80,6 +88,8 @@ export type SkillMaxAggregateInputType = {
   id?: true
   category?: true
   items?: true
+  link?: true
+  fileUrl?: true
   sortOrder?: true
 }
 
@@ -87,6 +97,8 @@ export type SkillCountAggregateInputType = {
   id?: true
   category?: true
   items?: true
+  link?: true
+  fileUrl?: true
   sortOrder?: true
   _all?: true
 }
@@ -181,6 +193,8 @@ export type SkillGroupByOutputType = {
   id: number
   category: string
   items: string
+  link: string | null
+  fileUrl: string | null
   sortOrder: number
   _count: SkillCountAggregateOutputType | null
   _avg: SkillAvgAggregateOutputType | null
@@ -211,6 +225,8 @@ export type SkillWhereInput = {
   id?: Prisma.IntFilter<"Skill"> | number
   category?: Prisma.StringFilter<"Skill"> | string
   items?: Prisma.StringFilter<"Skill"> | string
+  link?: Prisma.StringNullableFilter<"Skill"> | string | null
+  fileUrl?: Prisma.StringNullableFilter<"Skill"> | string | null
   sortOrder?: Prisma.IntFilter<"Skill"> | number
 }
 
@@ -218,6 +234,8 @@ export type SkillOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   category?: Prisma.SortOrder
   items?: Prisma.SortOrder
+  link?: Prisma.SortOrderInput | Prisma.SortOrder
+  fileUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -228,6 +246,8 @@ export type SkillWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.SkillWhereInput | Prisma.SkillWhereInput[]
   category?: Prisma.StringFilter<"Skill"> | string
   items?: Prisma.StringFilter<"Skill"> | string
+  link?: Prisma.StringNullableFilter<"Skill"> | string | null
+  fileUrl?: Prisma.StringNullableFilter<"Skill"> | string | null
   sortOrder?: Prisma.IntFilter<"Skill"> | number
 }, "id">
 
@@ -235,6 +255,8 @@ export type SkillOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   category?: Prisma.SortOrder
   items?: Prisma.SortOrder
+  link?: Prisma.SortOrderInput | Prisma.SortOrder
+  fileUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
   _count?: Prisma.SkillCountOrderByAggregateInput
   _avg?: Prisma.SkillAvgOrderByAggregateInput
@@ -250,12 +272,16 @@ export type SkillScalarWhereWithAggregatesInput = {
   id?: Prisma.IntWithAggregatesFilter<"Skill"> | number
   category?: Prisma.StringWithAggregatesFilter<"Skill"> | string
   items?: Prisma.StringWithAggregatesFilter<"Skill"> | string
+  link?: Prisma.StringNullableWithAggregatesFilter<"Skill"> | string | null
+  fileUrl?: Prisma.StringNullableWithAggregatesFilter<"Skill"> | string | null
   sortOrder?: Prisma.IntWithAggregatesFilter<"Skill"> | number
 }
 
 export type SkillCreateInput = {
   category: string
   items: string
+  link?: string | null
+  fileUrl?: string | null
   sortOrder?: number
 }
 
@@ -263,12 +289,16 @@ export type SkillUncheckedCreateInput = {
   id?: number
   category: string
   items: string
+  link?: string | null
+  fileUrl?: string | null
   sortOrder?: number
 }
 
 export type SkillUpdateInput = {
   category?: Prisma.StringFieldUpdateOperationsInput | string
   items?: Prisma.StringFieldUpdateOperationsInput | string
+  link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -276,6 +306,8 @@ export type SkillUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   category?: Prisma.StringFieldUpdateOperationsInput | string
   items?: Prisma.StringFieldUpdateOperationsInput | string
+  link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -283,12 +315,16 @@ export type SkillCreateManyInput = {
   id?: number
   category: string
   items: string
+  link?: string | null
+  fileUrl?: string | null
   sortOrder?: number
 }
 
 export type SkillUpdateManyMutationInput = {
   category?: Prisma.StringFieldUpdateOperationsInput | string
   items?: Prisma.StringFieldUpdateOperationsInput | string
+  link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -296,6 +332,8 @@ export type SkillUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   category?: Prisma.StringFieldUpdateOperationsInput | string
   items?: Prisma.StringFieldUpdateOperationsInput | string
+  link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -303,6 +341,8 @@ export type SkillCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   category?: Prisma.SortOrder
   items?: Prisma.SortOrder
+  link?: Prisma.SortOrder
+  fileUrl?: Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -315,6 +355,8 @@ export type SkillMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   category?: Prisma.SortOrder
   items?: Prisma.SortOrder
+  link?: Prisma.SortOrder
+  fileUrl?: Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -322,6 +364,8 @@ export type SkillMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   category?: Prisma.SortOrder
   items?: Prisma.SortOrder
+  link?: Prisma.SortOrder
+  fileUrl?: Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -336,6 +380,8 @@ export type SkillSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   id?: boolean
   category?: boolean
   items?: boolean
+  link?: boolean
+  fileUrl?: boolean
   sortOrder?: boolean
 }, ExtArgs["result"]["skill"]>
 
@@ -343,6 +389,8 @@ export type SkillSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   id?: boolean
   category?: boolean
   items?: boolean
+  link?: boolean
+  fileUrl?: boolean
   sortOrder?: boolean
 }, ExtArgs["result"]["skill"]>
 
@@ -350,6 +398,8 @@ export type SkillSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   id?: boolean
   category?: boolean
   items?: boolean
+  link?: boolean
+  fileUrl?: boolean
   sortOrder?: boolean
 }, ExtArgs["result"]["skill"]>
 
@@ -357,10 +407,12 @@ export type SkillSelectScalar = {
   id?: boolean
   category?: boolean
   items?: boolean
+  link?: boolean
+  fileUrl?: boolean
   sortOrder?: boolean
 }
 
-export type SkillOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "category" | "items" | "sortOrder", ExtArgs["result"]["skill"]>
+export type SkillOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "category" | "items" | "link" | "fileUrl" | "sortOrder", ExtArgs["result"]["skill"]>
 
 export type $SkillPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Skill"
@@ -369,6 +421,8 @@ export type $SkillPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     id: number
     category: string
     items: string
+    link: string | null
+    fileUrl: string | null
     sortOrder: number
   }, ExtArgs["result"]["skill"]>
   composites: {}
@@ -796,6 +850,8 @@ export interface SkillFieldRefs {
   readonly id: Prisma.FieldRef<"Skill", 'Int'>
   readonly category: Prisma.FieldRef<"Skill", 'String'>
   readonly items: Prisma.FieldRef<"Skill", 'String'>
+  readonly link: Prisma.FieldRef<"Skill", 'String'>
+  readonly fileUrl: Prisma.FieldRef<"Skill", 'String'>
   readonly sortOrder: Prisma.FieldRef<"Skill", 'Int'>
 }
     

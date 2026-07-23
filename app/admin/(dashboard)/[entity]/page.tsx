@@ -1,9 +1,13 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/db";
 import { requireAdmin } from "@/lib/dal";
 import { getEntity } from "@/lib/entities";
+import { getPageMeta } from "@/lib/page-meta-actions";
 import { ReorderableTable } from "../../_components/reorderable-table";
+import { SavedToast } from "../../_components/saved-toast";
+import { PageHeaderEditor } from "../../_components/page-header-editor";
 import { Plus } from "lucide-react";
 
 export default async function EntityListPage({
@@ -23,14 +27,18 @@ export default async function EntityListPage({
     >
   )[entity.model];
   const rows = await delegate.findMany({ orderBy: { sortOrder: "asc" } });
+  const meta = await getPageMeta(slug);
 
   return (
     <div>
-      <div className="flex justify-between items-center mb-2">
-        <h1 className="text-2xl font-bold text-slate-800">{entity.label}</h1>
+      <Suspense fallback={null}>
+        <SavedToast />
+      </Suspense>
+      <div className="flex justify-between items-start gap-4 mb-2">
+        <PageHeaderEditor slug={slug} title={meta.title} description={meta.description} />
         <Link
           href={`/admin/${slug}/new`}
-          className="bg-primary hover:bg-blue-900 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors shadow-sm flex items-center gap-2"
+          className="bg-primary hover:bg-blue-900 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors shadow-sm flex items-center gap-2 shrink-0"
         >
           <Plus className="w-4 h-4" /> Tambah Data
         </Link>

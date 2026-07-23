@@ -1,16 +1,20 @@
 import { prisma } from "@/lib/db";
+import { getPageMeta } from "@/lib/page-meta-actions";
+import { AttachmentLink } from "../_components/attachment-link";
 
 export const metadata = { title: "Pengajaran — Tri Basuki Kurniawan" };
 export const dynamic = "force-dynamic";
 
 export default async function PengajaranPage() {
-  const data = await prisma.teaching.findMany({ orderBy: { sortOrder: "asc" } });
+  const [data, meta] = await Promise.all([
+    prisma.teaching.findMany({ orderBy: { sortOrder: "asc" } }),
+    getPageMeta("teaching"),
+  ]);
 
   return (
     <section className="max-w-5xl mx-auto">
-      <h2 className="text-2xl font-bold text-slate-800 mb-6">
-        Pengajaran &amp; Pelatihan yang Pernah Disampaikan
-      </h2>
+      <h2 className="text-2xl font-bold text-slate-800 mb-2">{meta.title}</h2>
+      {meta.description && <p className="text-slate-500 text-sm mb-6">{meta.description}</p>}
       <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
@@ -48,6 +52,9 @@ export default async function PengajaranPage() {
                         <p className="text-slate-500 text-sm mt-1 font-normal">
                           {item.description}
                         </p>
+                      )}
+                      {item.fileUrl && (
+                        <AttachmentLink url={item.fileUrl} className="mt-2 max-w-xs" />
                       )}
                     </td>
                     <td className="p-4 text-slate-600 align-top">{item.institution}</td>

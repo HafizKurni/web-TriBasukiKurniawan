@@ -407,7 +407,8 @@ export const ModelName = {
   ResearchInterest: 'ResearchInterest',
   Certification: 'Certification',
   CustomLink: 'CustomLink',
-  AdminUser: 'AdminUser'
+  AdminUser: 'AdminUser',
+  PageMeta: 'PageMeta'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -423,7 +424,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "profile" | "education" | "experience" | "teaching" | "publication" | "project" | "skill" | "researchInterest" | "certification" | "customLink" | "adminUser"
+    modelProps: "profile" | "education" | "experience" | "teaching" | "publication" | "project" | "skill" | "researchInterest" | "certification" | "customLink" | "adminUser" | "pageMeta"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1241,6 +1242,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    PageMeta: {
+      payload: Prisma.$PageMetaPayload<ExtArgs>
+      fields: Prisma.PageMetaFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PageMetaFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PageMetaPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PageMetaFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PageMetaPayload>
+        }
+        findFirst: {
+          args: Prisma.PageMetaFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PageMetaPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PageMetaFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PageMetaPayload>
+        }
+        findMany: {
+          args: Prisma.PageMetaFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PageMetaPayload>[]
+        }
+        create: {
+          args: Prisma.PageMetaCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PageMetaPayload>
+        }
+        createMany: {
+          args: Prisma.PageMetaCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PageMetaCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PageMetaPayload>[]
+        }
+        delete: {
+          args: Prisma.PageMetaDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PageMetaPayload>
+        }
+        update: {
+          args: Prisma.PageMetaUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PageMetaPayload>
+        }
+        deleteMany: {
+          args: Prisma.PageMetaDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PageMetaUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PageMetaUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PageMetaPayload>[]
+        }
+        upsert: {
+          args: Prisma.PageMetaUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PageMetaPayload>
+        }
+        aggregate: {
+          args: Prisma.PageMetaAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePageMeta>
+        }
+        groupBy: {
+          args: Prisma.PageMetaGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PageMetaGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PageMetaCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PageMetaCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1303,6 +1378,8 @@ export const EducationScalarFieldEnum = {
   major: 'major',
   period: 'period',
   location: 'location',
+  link: 'link',
+  fileUrl: 'fileUrl',
   sortOrder: 'sortOrder'
 } as const
 
@@ -1315,6 +1392,8 @@ export const ExperienceScalarFieldEnum = {
   institution: 'institution',
   period: 'period',
   current: 'current',
+  link: 'link',
+  fileUrl: 'fileUrl',
   sortOrder: 'sortOrder'
 } as const
 
@@ -1328,6 +1407,7 @@ export const TeachingScalarFieldEnum = {
   year: 'year',
   description: 'description',
   link: 'link',
+  fileUrl: 'fileUrl',
   sortOrder: 'sortOrder'
 } as const
 
@@ -1343,6 +1423,7 @@ export const PublicationScalarFieldEnum = {
   venue: 'venue',
   details: 'details',
   link: 'link',
+  fileUrl: 'fileUrl',
   sortOrder: 'sortOrder'
 } as const
 
@@ -1367,6 +1448,8 @@ export const SkillScalarFieldEnum = {
   id: 'id',
   category: 'category',
   items: 'items',
+  link: 'link',
+  fileUrl: 'fileUrl',
   sortOrder: 'sortOrder'
 } as const
 
@@ -1376,6 +1459,8 @@ export type SkillScalarFieldEnum = (typeof SkillScalarFieldEnum)[keyof typeof Sk
 export const ResearchInterestScalarFieldEnum = {
   id: 'id',
   text: 'text',
+  link: 'link',
+  fileUrl: 'fileUrl',
   sortOrder: 'sortOrder'
 } as const
 
@@ -1387,6 +1472,8 @@ export const CertificationScalarFieldEnum = {
   title: 'title',
   year: 'year',
   provider: 'provider',
+  link: 'link',
+  fileUrl: 'fileUrl',
   sortOrder: 'sortOrder'
 } as const
 
@@ -1398,6 +1485,7 @@ export const CustomLinkScalarFieldEnum = {
   label: 'label',
   url: 'url',
   icon: 'icon',
+  fileUrl: 'fileUrl',
   sortOrder: 'sortOrder'
 } as const
 
@@ -1411,6 +1499,15 @@ export const AdminUserScalarFieldEnum = {
 } as const
 
 export type AdminUserScalarFieldEnum = (typeof AdminUserScalarFieldEnum)[keyof typeof AdminUserScalarFieldEnum]
+
+
+export const PageMetaScalarFieldEnum = {
+  slug: 'slug',
+  title: 'title',
+  description: 'description'
+} as const
+
+export type PageMetaScalarFieldEnum = (typeof PageMetaScalarFieldEnum)[keyof typeof PageMetaScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1624,6 +1721,7 @@ export type GlobalOmitConfig = {
   certification?: Prisma.CertificationOmit
   customLink?: Prisma.CustomLinkOmit
   adminUser?: Prisma.AdminUserOmit
+  pageMeta?: Prisma.PageMetaOmit
 }
 
 /* Types for Logging */

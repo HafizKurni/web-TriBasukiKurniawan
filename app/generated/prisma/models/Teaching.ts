@@ -43,6 +43,7 @@ export type TeachingMinAggregateOutputType = {
   year: string | null
   description: string | null
   link: string | null
+  fileUrl: string | null
   sortOrder: number | null
 }
 
@@ -53,6 +54,7 @@ export type TeachingMaxAggregateOutputType = {
   year: string | null
   description: string | null
   link: string | null
+  fileUrl: string | null
   sortOrder: number | null
 }
 
@@ -63,6 +65,7 @@ export type TeachingCountAggregateOutputType = {
   year: number
   description: number
   link: number
+  fileUrl: number
   sortOrder: number
   _all: number
 }
@@ -85,6 +88,7 @@ export type TeachingMinAggregateInputType = {
   year?: true
   description?: true
   link?: true
+  fileUrl?: true
   sortOrder?: true
 }
 
@@ -95,6 +99,7 @@ export type TeachingMaxAggregateInputType = {
   year?: true
   description?: true
   link?: true
+  fileUrl?: true
   sortOrder?: true
 }
 
@@ -105,6 +110,7 @@ export type TeachingCountAggregateInputType = {
   year?: true
   description?: true
   link?: true
+  fileUrl?: true
   sortOrder?: true
   _all?: true
 }
@@ -202,6 +208,7 @@ export type TeachingGroupByOutputType = {
   year: string
   description: string | null
   link: string | null
+  fileUrl: string | null
   sortOrder: number
   _count: TeachingCountAggregateOutputType | null
   _avg: TeachingAvgAggregateOutputType | null
@@ -235,6 +242,7 @@ export type TeachingWhereInput = {
   year?: Prisma.StringFilter<"Teaching"> | string
   description?: Prisma.StringNullableFilter<"Teaching"> | string | null
   link?: Prisma.StringNullableFilter<"Teaching"> | string | null
+  fileUrl?: Prisma.StringNullableFilter<"Teaching"> | string | null
   sortOrder?: Prisma.IntFilter<"Teaching"> | number
 }
 
@@ -245,6 +253,7 @@ export type TeachingOrderByWithRelationInput = {
   year?: Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   link?: Prisma.SortOrderInput | Prisma.SortOrder
+  fileUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -258,6 +267,7 @@ export type TeachingWhereUniqueInput = Prisma.AtLeast<{
   year?: Prisma.StringFilter<"Teaching"> | string
   description?: Prisma.StringNullableFilter<"Teaching"> | string | null
   link?: Prisma.StringNullableFilter<"Teaching"> | string | null
+  fileUrl?: Prisma.StringNullableFilter<"Teaching"> | string | null
   sortOrder?: Prisma.IntFilter<"Teaching"> | number
 }, "id">
 
@@ -268,6 +278,7 @@ export type TeachingOrderByWithAggregationInput = {
   year?: Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   link?: Prisma.SortOrderInput | Prisma.SortOrder
+  fileUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
   _count?: Prisma.TeachingCountOrderByAggregateInput
   _avg?: Prisma.TeachingAvgOrderByAggregateInput
@@ -286,6 +297,7 @@ export type TeachingScalarWhereWithAggregatesInput = {
   year?: Prisma.StringWithAggregatesFilter<"Teaching"> | string
   description?: Prisma.StringNullableWithAggregatesFilter<"Teaching"> | string | null
   link?: Prisma.StringNullableWithAggregatesFilter<"Teaching"> | string | null
+  fileUrl?: Prisma.StringNullableWithAggregatesFilter<"Teaching"> | string | null
   sortOrder?: Prisma.IntWithAggregatesFilter<"Teaching"> | number
 }
 
@@ -295,6 +307,7 @@ export type TeachingCreateInput = {
   year: string
   description?: string | null
   link?: string | null
+  fileUrl?: string | null
   sortOrder?: number
 }
 
@@ -305,6 +318,7 @@ export type TeachingUncheckedCreateInput = {
   year: string
   description?: string | null
   link?: string | null
+  fileUrl?: string | null
   sortOrder?: number
 }
 
@@ -314,6 +328,7 @@ export type TeachingUpdateInput = {
   year?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -324,6 +339,7 @@ export type TeachingUncheckedUpdateInput = {
   year?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -334,6 +350,7 @@ export type TeachingCreateManyInput = {
   year: string
   description?: string | null
   link?: string | null
+  fileUrl?: string | null
   sortOrder?: number
 }
 
@@ -343,6 +360,7 @@ export type TeachingUpdateManyMutationInput = {
   year?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -353,6 +371,7 @@ export type TeachingUncheckedUpdateManyInput = {
   year?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -363,6 +382,7 @@ export type TeachingCountOrderByAggregateInput = {
   year?: Prisma.SortOrder
   description?: Prisma.SortOrder
   link?: Prisma.SortOrder
+  fileUrl?: Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -378,6 +398,7 @@ export type TeachingMaxOrderByAggregateInput = {
   year?: Prisma.SortOrder
   description?: Prisma.SortOrder
   link?: Prisma.SortOrder
+  fileUrl?: Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -388,6 +409,7 @@ export type TeachingMinOrderByAggregateInput = {
   year?: Prisma.SortOrder
   description?: Prisma.SortOrder
   link?: Prisma.SortOrder
+  fileUrl?: Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -405,6 +427,7 @@ export type TeachingSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   year?: boolean
   description?: boolean
   link?: boolean
+  fileUrl?: boolean
   sortOrder?: boolean
 }, ExtArgs["result"]["teaching"]>
 
@@ -415,6 +438,7 @@ export type TeachingSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exte
   year?: boolean
   description?: boolean
   link?: boolean
+  fileUrl?: boolean
   sortOrder?: boolean
 }, ExtArgs["result"]["teaching"]>
 
@@ -425,6 +449,7 @@ export type TeachingSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
   year?: boolean
   description?: boolean
   link?: boolean
+  fileUrl?: boolean
   sortOrder?: boolean
 }, ExtArgs["result"]["teaching"]>
 
@@ -435,10 +460,11 @@ export type TeachingSelectScalar = {
   year?: boolean
   description?: boolean
   link?: boolean
+  fileUrl?: boolean
   sortOrder?: boolean
 }
 
-export type TeachingOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "institution" | "year" | "description" | "link" | "sortOrder", ExtArgs["result"]["teaching"]>
+export type TeachingOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "institution" | "year" | "description" | "link" | "fileUrl" | "sortOrder", ExtArgs["result"]["teaching"]>
 
 export type $TeachingPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Teaching"
@@ -450,6 +476,7 @@ export type $TeachingPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     year: string
     description: string | null
     link: string | null
+    fileUrl: string | null
     sortOrder: number
   }, ExtArgs["result"]["teaching"]>
   composites: {}
@@ -880,6 +907,7 @@ export interface TeachingFieldRefs {
   readonly year: Prisma.FieldRef<"Teaching", 'String'>
   readonly description: Prisma.FieldRef<"Teaching", 'String'>
   readonly link: Prisma.FieldRef<"Teaching", 'String'>
+  readonly fileUrl: Prisma.FieldRef<"Teaching", 'String'>
   readonly sortOrder: Prisma.FieldRef<"Teaching", 'Int'>
 }
     

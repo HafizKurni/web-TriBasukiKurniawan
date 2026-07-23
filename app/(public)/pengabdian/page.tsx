@@ -1,20 +1,20 @@
 import { prisma } from "@/lib/db";
+import { getPageMeta } from "@/lib/page-meta-actions";
+import { AttachmentLink } from "../_components/attachment-link";
 
 export const metadata = { title: "Pengabdian — Tri Basuki Kurniawan" };
 export const dynamic = "force-dynamic";
 
 export default async function PengabdianPage() {
-  const data = await prisma.project.findMany({ orderBy: { sortOrder: "asc" } });
+  const [data, meta] = await Promise.all([
+    prisma.project.findMany({ orderBy: { sortOrder: "asc" } }),
+    getPageMeta("project"),
+  ]);
 
   return (
     <section className="max-w-5xl mx-auto">
-      <h2 className="text-2xl font-bold text-slate-800 mb-2">
-        Pengabdian kepada Masyarakat &amp; Instansi
-      </h2>
-      <p className="text-slate-500 text-sm mb-6">
-        Proyek pengembangan sistem informasi dan konsultasi IT untuk instansi pemerintah, institusi
-        pendidikan, dan organisasi masyarakat.
-      </p>
+      <h2 className="text-2xl font-bold text-slate-800 mb-2">{meta.title}</h2>
+      {meta.description && <p className="text-slate-500 text-sm mb-6">{meta.description}</p>}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {data.length === 0 ? (
           <p className="col-span-full text-center py-8 text-slate-400 italic bg-white rounded-xl border border-slate-200">
@@ -26,6 +26,7 @@ export default async function PengabdianPage() {
               key={item.id}
               className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
             >
+              {item.imageUrl && <AttachmentLink url={item.imageUrl} className="mb-3" />}
               <div className="text-xs font-bold text-slate-400 mb-2">{item.year}</div>
               <h3 className="font-bold text-slate-800 leading-tight mb-2">
                 {item.link ? (

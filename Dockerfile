@@ -31,6 +31,7 @@ ENV NODE_ENV=production
 ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
 ENV DATABASE_URL=file:/app/data/app.db
+ENV UPLOADS_DIR=/app/uploads
 
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/app/generated ./app/generated
@@ -42,7 +43,7 @@ COPY --from=builder /app/next.config.ts ./next.config.ts
 COPY --from=builder /app/package.json ./package.json
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh \
-    && mkdir -p /app/public/uploads /app/data \
+    && mkdir -p /app/uploads /app/data \
     && chown -R nextjs:nodejs /app
 
 USER nextjs

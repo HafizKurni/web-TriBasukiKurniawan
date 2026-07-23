@@ -41,6 +41,7 @@ export type CustomLinkMinAggregateOutputType = {
   label: string | null
   url: string | null
   icon: string | null
+  fileUrl: string | null
   sortOrder: number | null
 }
 
@@ -49,6 +50,7 @@ export type CustomLinkMaxAggregateOutputType = {
   label: string | null
   url: string | null
   icon: string | null
+  fileUrl: string | null
   sortOrder: number | null
 }
 
@@ -57,6 +59,7 @@ export type CustomLinkCountAggregateOutputType = {
   label: number
   url: number
   icon: number
+  fileUrl: number
   sortOrder: number
   _all: number
 }
@@ -77,6 +80,7 @@ export type CustomLinkMinAggregateInputType = {
   label?: true
   url?: true
   icon?: true
+  fileUrl?: true
   sortOrder?: true
 }
 
@@ -85,6 +89,7 @@ export type CustomLinkMaxAggregateInputType = {
   label?: true
   url?: true
   icon?: true
+  fileUrl?: true
   sortOrder?: true
 }
 
@@ -93,6 +98,7 @@ export type CustomLinkCountAggregateInputType = {
   label?: true
   url?: true
   icon?: true
+  fileUrl?: true
   sortOrder?: true
   _all?: true
 }
@@ -188,6 +194,7 @@ export type CustomLinkGroupByOutputType = {
   label: string
   url: string
   icon: string | null
+  fileUrl: string | null
   sortOrder: number
   _count: CustomLinkCountAggregateOutputType | null
   _avg: CustomLinkAvgAggregateOutputType | null
@@ -219,6 +226,7 @@ export type CustomLinkWhereInput = {
   label?: Prisma.StringFilter<"CustomLink"> | string
   url?: Prisma.StringFilter<"CustomLink"> | string
   icon?: Prisma.StringNullableFilter<"CustomLink"> | string | null
+  fileUrl?: Prisma.StringNullableFilter<"CustomLink"> | string | null
   sortOrder?: Prisma.IntFilter<"CustomLink"> | number
 }
 
@@ -227,6 +235,7 @@ export type CustomLinkOrderByWithRelationInput = {
   label?: Prisma.SortOrder
   url?: Prisma.SortOrder
   icon?: Prisma.SortOrderInput | Prisma.SortOrder
+  fileUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -238,6 +247,7 @@ export type CustomLinkWhereUniqueInput = Prisma.AtLeast<{
   label?: Prisma.StringFilter<"CustomLink"> | string
   url?: Prisma.StringFilter<"CustomLink"> | string
   icon?: Prisma.StringNullableFilter<"CustomLink"> | string | null
+  fileUrl?: Prisma.StringNullableFilter<"CustomLink"> | string | null
   sortOrder?: Prisma.IntFilter<"CustomLink"> | number
 }, "id">
 
@@ -246,6 +256,7 @@ export type CustomLinkOrderByWithAggregationInput = {
   label?: Prisma.SortOrder
   url?: Prisma.SortOrder
   icon?: Prisma.SortOrderInput | Prisma.SortOrder
+  fileUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
   _count?: Prisma.CustomLinkCountOrderByAggregateInput
   _avg?: Prisma.CustomLinkAvgOrderByAggregateInput
@@ -262,6 +273,7 @@ export type CustomLinkScalarWhereWithAggregatesInput = {
   label?: Prisma.StringWithAggregatesFilter<"CustomLink"> | string
   url?: Prisma.StringWithAggregatesFilter<"CustomLink"> | string
   icon?: Prisma.StringNullableWithAggregatesFilter<"CustomLink"> | string | null
+  fileUrl?: Prisma.StringNullableWithAggregatesFilter<"CustomLink"> | string | null
   sortOrder?: Prisma.IntWithAggregatesFilter<"CustomLink"> | number
 }
 
@@ -269,6 +281,7 @@ export type CustomLinkCreateInput = {
   label: string
   url: string
   icon?: string | null
+  fileUrl?: string | null
   sortOrder?: number
 }
 
@@ -277,6 +290,7 @@ export type CustomLinkUncheckedCreateInput = {
   label: string
   url: string
   icon?: string | null
+  fileUrl?: string | null
   sortOrder?: number
 }
 
@@ -284,6 +298,7 @@ export type CustomLinkUpdateInput = {
   label?: Prisma.StringFieldUpdateOperationsInput | string
   url?: Prisma.StringFieldUpdateOperationsInput | string
   icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -292,6 +307,7 @@ export type CustomLinkUncheckedUpdateInput = {
   label?: Prisma.StringFieldUpdateOperationsInput | string
   url?: Prisma.StringFieldUpdateOperationsInput | string
   icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -300,6 +316,7 @@ export type CustomLinkCreateManyInput = {
   label: string
   url: string
   icon?: string | null
+  fileUrl?: string | null
   sortOrder?: number
 }
 
@@ -307,6 +324,7 @@ export type CustomLinkUpdateManyMutationInput = {
   label?: Prisma.StringFieldUpdateOperationsInput | string
   url?: Prisma.StringFieldUpdateOperationsInput | string
   icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -315,6 +333,7 @@ export type CustomLinkUncheckedUpdateManyInput = {
   label?: Prisma.StringFieldUpdateOperationsInput | string
   url?: Prisma.StringFieldUpdateOperationsInput | string
   icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -323,6 +342,7 @@ export type CustomLinkCountOrderByAggregateInput = {
   label?: Prisma.SortOrder
   url?: Prisma.SortOrder
   icon?: Prisma.SortOrder
+  fileUrl?: Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -336,6 +356,7 @@ export type CustomLinkMaxOrderByAggregateInput = {
   label?: Prisma.SortOrder
   url?: Prisma.SortOrder
   icon?: Prisma.SortOrder
+  fileUrl?: Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -344,6 +365,7 @@ export type CustomLinkMinOrderByAggregateInput = {
   label?: Prisma.SortOrder
   url?: Prisma.SortOrder
   icon?: Prisma.SortOrder
+  fileUrl?: Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -359,6 +381,7 @@ export type CustomLinkSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   label?: boolean
   url?: boolean
   icon?: boolean
+  fileUrl?: boolean
   sortOrder?: boolean
 }, ExtArgs["result"]["customLink"]>
 
@@ -367,6 +390,7 @@ export type CustomLinkSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
   label?: boolean
   url?: boolean
   icon?: boolean
+  fileUrl?: boolean
   sortOrder?: boolean
 }, ExtArgs["result"]["customLink"]>
 
@@ -375,6 +399,7 @@ export type CustomLinkSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
   label?: boolean
   url?: boolean
   icon?: boolean
+  fileUrl?: boolean
   sortOrder?: boolean
 }, ExtArgs["result"]["customLink"]>
 
@@ -383,10 +408,11 @@ export type CustomLinkSelectScalar = {
   label?: boolean
   url?: boolean
   icon?: boolean
+  fileUrl?: boolean
   sortOrder?: boolean
 }
 
-export type CustomLinkOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "label" | "url" | "icon" | "sortOrder", ExtArgs["result"]["customLink"]>
+export type CustomLinkOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "label" | "url" | "icon" | "fileUrl" | "sortOrder", ExtArgs["result"]["customLink"]>
 
 export type $CustomLinkPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "CustomLink"
@@ -396,6 +422,7 @@ export type $CustomLinkPayload<ExtArgs extends runtime.Types.Extensions.Internal
     label: string
     url: string
     icon: string | null
+    fileUrl: string | null
     sortOrder: number
   }, ExtArgs["result"]["customLink"]>
   composites: {}
@@ -824,6 +851,7 @@ export interface CustomLinkFieldRefs {
   readonly label: Prisma.FieldRef<"CustomLink", 'String'>
   readonly url: Prisma.FieldRef<"CustomLink", 'String'>
   readonly icon: Prisma.FieldRef<"CustomLink", 'String'>
+  readonly fileUrl: Prisma.FieldRef<"CustomLink", 'String'>
   readonly sortOrder: Prisma.FieldRef<"CustomLink", 'Int'>
 }
     

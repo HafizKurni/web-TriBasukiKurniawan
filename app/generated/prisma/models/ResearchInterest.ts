@@ -39,18 +39,24 @@ export type ResearchInterestSumAggregateOutputType = {
 export type ResearchInterestMinAggregateOutputType = {
   id: number | null
   text: string | null
+  link: string | null
+  fileUrl: string | null
   sortOrder: number | null
 }
 
 export type ResearchInterestMaxAggregateOutputType = {
   id: number | null
   text: string | null
+  link: string | null
+  fileUrl: string | null
   sortOrder: number | null
 }
 
 export type ResearchInterestCountAggregateOutputType = {
   id: number
   text: number
+  link: number
+  fileUrl: number
   sortOrder: number
   _all: number
 }
@@ -69,18 +75,24 @@ export type ResearchInterestSumAggregateInputType = {
 export type ResearchInterestMinAggregateInputType = {
   id?: true
   text?: true
+  link?: true
+  fileUrl?: true
   sortOrder?: true
 }
 
 export type ResearchInterestMaxAggregateInputType = {
   id?: true
   text?: true
+  link?: true
+  fileUrl?: true
   sortOrder?: true
 }
 
 export type ResearchInterestCountAggregateInputType = {
   id?: true
   text?: true
+  link?: true
+  fileUrl?: true
   sortOrder?: true
   _all?: true
 }
@@ -174,6 +186,8 @@ export type ResearchInterestGroupByArgs<ExtArgs extends runtime.Types.Extensions
 export type ResearchInterestGroupByOutputType = {
   id: number
   text: string
+  link: string | null
+  fileUrl: string | null
   sortOrder: number
   _count: ResearchInterestCountAggregateOutputType | null
   _avg: ResearchInterestAvgAggregateOutputType | null
@@ -203,12 +217,16 @@ export type ResearchInterestWhereInput = {
   NOT?: Prisma.ResearchInterestWhereInput | Prisma.ResearchInterestWhereInput[]
   id?: Prisma.IntFilter<"ResearchInterest"> | number
   text?: Prisma.StringFilter<"ResearchInterest"> | string
+  link?: Prisma.StringNullableFilter<"ResearchInterest"> | string | null
+  fileUrl?: Prisma.StringNullableFilter<"ResearchInterest"> | string | null
   sortOrder?: Prisma.IntFilter<"ResearchInterest"> | number
 }
 
 export type ResearchInterestOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   text?: Prisma.SortOrder
+  link?: Prisma.SortOrderInput | Prisma.SortOrder
+  fileUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -218,12 +236,16 @@ export type ResearchInterestWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.ResearchInterestWhereInput[]
   NOT?: Prisma.ResearchInterestWhereInput | Prisma.ResearchInterestWhereInput[]
   text?: Prisma.StringFilter<"ResearchInterest"> | string
+  link?: Prisma.StringNullableFilter<"ResearchInterest"> | string | null
+  fileUrl?: Prisma.StringNullableFilter<"ResearchInterest"> | string | null
   sortOrder?: Prisma.IntFilter<"ResearchInterest"> | number
 }, "id">
 
 export type ResearchInterestOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   text?: Prisma.SortOrder
+  link?: Prisma.SortOrderInput | Prisma.SortOrder
+  fileUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
   _count?: Prisma.ResearchInterestCountOrderByAggregateInput
   _avg?: Prisma.ResearchInterestAvgOrderByAggregateInput
@@ -238,51 +260,69 @@ export type ResearchInterestScalarWhereWithAggregatesInput = {
   NOT?: Prisma.ResearchInterestScalarWhereWithAggregatesInput | Prisma.ResearchInterestScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"ResearchInterest"> | number
   text?: Prisma.StringWithAggregatesFilter<"ResearchInterest"> | string
+  link?: Prisma.StringNullableWithAggregatesFilter<"ResearchInterest"> | string | null
+  fileUrl?: Prisma.StringNullableWithAggregatesFilter<"ResearchInterest"> | string | null
   sortOrder?: Prisma.IntWithAggregatesFilter<"ResearchInterest"> | number
 }
 
 export type ResearchInterestCreateInput = {
   text: string
+  link?: string | null
+  fileUrl?: string | null
   sortOrder?: number
 }
 
 export type ResearchInterestUncheckedCreateInput = {
   id?: number
   text: string
+  link?: string | null
+  fileUrl?: string | null
   sortOrder?: number
 }
 
 export type ResearchInterestUpdateInput = {
   text?: Prisma.StringFieldUpdateOperationsInput | string
+  link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type ResearchInterestUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   text?: Prisma.StringFieldUpdateOperationsInput | string
+  link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type ResearchInterestCreateManyInput = {
   id?: number
   text: string
+  link?: string | null
+  fileUrl?: string | null
   sortOrder?: number
 }
 
 export type ResearchInterestUpdateManyMutationInput = {
   text?: Prisma.StringFieldUpdateOperationsInput | string
+  link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type ResearchInterestUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   text?: Prisma.StringFieldUpdateOperationsInput | string
+  link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type ResearchInterestCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   text?: Prisma.SortOrder
+  link?: Prisma.SortOrder
+  fileUrl?: Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -294,12 +334,16 @@ export type ResearchInterestAvgOrderByAggregateInput = {
 export type ResearchInterestMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   text?: Prisma.SortOrder
+  link?: Prisma.SortOrder
+  fileUrl?: Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
 export type ResearchInterestMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   text?: Prisma.SortOrder
+  link?: Prisma.SortOrder
+  fileUrl?: Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -313,28 +357,36 @@ export type ResearchInterestSumOrderByAggregateInput = {
 export type ResearchInterestSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   text?: boolean
+  link?: boolean
+  fileUrl?: boolean
   sortOrder?: boolean
 }, ExtArgs["result"]["researchInterest"]>
 
 export type ResearchInterestSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   text?: boolean
+  link?: boolean
+  fileUrl?: boolean
   sortOrder?: boolean
 }, ExtArgs["result"]["researchInterest"]>
 
 export type ResearchInterestSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   text?: boolean
+  link?: boolean
+  fileUrl?: boolean
   sortOrder?: boolean
 }, ExtArgs["result"]["researchInterest"]>
 
 export type ResearchInterestSelectScalar = {
   id?: boolean
   text?: boolean
+  link?: boolean
+  fileUrl?: boolean
   sortOrder?: boolean
 }
 
-export type ResearchInterestOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "text" | "sortOrder", ExtArgs["result"]["researchInterest"]>
+export type ResearchInterestOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "text" | "link" | "fileUrl" | "sortOrder", ExtArgs["result"]["researchInterest"]>
 
 export type $ResearchInterestPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "ResearchInterest"
@@ -342,6 +394,8 @@ export type $ResearchInterestPayload<ExtArgs extends runtime.Types.Extensions.In
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     text: string
+    link: string | null
+    fileUrl: string | null
     sortOrder: number
   }, ExtArgs["result"]["researchInterest"]>
   composites: {}
@@ -768,6 +822,8 @@ export interface Prisma__ResearchInterestClient<T, Null = never, ExtArgs extends
 export interface ResearchInterestFieldRefs {
   readonly id: Prisma.FieldRef<"ResearchInterest", 'Int'>
   readonly text: Prisma.FieldRef<"ResearchInterest", 'String'>
+  readonly link: Prisma.FieldRef<"ResearchInterest", 'String'>
+  readonly fileUrl: Prisma.FieldRef<"ResearchInterest", 'String'>
   readonly sortOrder: Prisma.FieldRef<"ResearchInterest", 'Int'>
 }
     

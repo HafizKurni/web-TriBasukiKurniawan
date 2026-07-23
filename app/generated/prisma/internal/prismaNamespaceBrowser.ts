@@ -61,7 +61,8 @@ export const ModelName = {
   ResearchInterest: 'ResearchInterest',
   Certification: 'Certification',
   CustomLink: 'CustomLink',
-  AdminUser: 'AdminUser'
+  AdminUser: 'AdminUser',
+  PageMeta: 'PageMeta'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -103,6 +104,8 @@ export const EducationScalarFieldEnum = {
   major: 'major',
   period: 'period',
   location: 'location',
+  link: 'link',
+  fileUrl: 'fileUrl',
   sortOrder: 'sortOrder'
 } as const
 
@@ -115,6 +118,8 @@ export const ExperienceScalarFieldEnum = {
   institution: 'institution',
   period: 'period',
   current: 'current',
+  link: 'link',
+  fileUrl: 'fileUrl',
   sortOrder: 'sortOrder'
 } as const
 
@@ -128,6 +133,7 @@ export const TeachingScalarFieldEnum = {
   year: 'year',
   description: 'description',
   link: 'link',
+  fileUrl: 'fileUrl',
   sortOrder: 'sortOrder'
 } as const
 
@@ -143,6 +149,7 @@ export const PublicationScalarFieldEnum = {
   venue: 'venue',
   details: 'details',
   link: 'link',
+  fileUrl: 'fileUrl',
   sortOrder: 'sortOrder'
 } as const
 
@@ -167,6 +174,8 @@ export const SkillScalarFieldEnum = {
   id: 'id',
   category: 'category',
   items: 'items',
+  link: 'link',
+  fileUrl: 'fileUrl',
   sortOrder: 'sortOrder'
 } as const
 
@@ -176,6 +185,8 @@ export type SkillScalarFieldEnum = (typeof SkillScalarFieldEnum)[keyof typeof Sk
 export const ResearchInterestScalarFieldEnum = {
   id: 'id',
   text: 'text',
+  link: 'link',
+  fileUrl: 'fileUrl',
   sortOrder: 'sortOrder'
 } as const
 
@@ -187,6 +198,8 @@ export const CertificationScalarFieldEnum = {
   title: 'title',
   year: 'year',
   provider: 'provider',
+  link: 'link',
+  fileUrl: 'fileUrl',
   sortOrder: 'sortOrder'
 } as const
 
@@ -198,6 +211,7 @@ export const CustomLinkScalarFieldEnum = {
   label: 'label',
   url: 'url',
   icon: 'icon',
+  fileUrl: 'fileUrl',
   sortOrder: 'sortOrder'
 } as const
 
@@ -211,6 +225,15 @@ export const AdminUserScalarFieldEnum = {
 } as const
 
 export type AdminUserScalarFieldEnum = (typeof AdminUserScalarFieldEnum)[keyof typeof AdminUserScalarFieldEnum]
+
+
+export const PageMetaScalarFieldEnum = {
+  slug: 'slug',
+  title: 'title',
+  description: 'description'
+} as const
+
+export type PageMetaScalarFieldEnum = (typeof PageMetaScalarFieldEnum)[keyof typeof PageMetaScalarFieldEnum]
 
 
 export const SortOrder = {

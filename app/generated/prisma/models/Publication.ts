@@ -45,6 +45,7 @@ export type PublicationMinAggregateOutputType = {
   venue: string | null
   details: string | null
   link: string | null
+  fileUrl: string | null
   sortOrder: number | null
 }
 
@@ -57,6 +58,7 @@ export type PublicationMaxAggregateOutputType = {
   venue: string | null
   details: string | null
   link: string | null
+  fileUrl: string | null
   sortOrder: number | null
 }
 
@@ -69,6 +71,7 @@ export type PublicationCountAggregateOutputType = {
   venue: number
   details: number
   link: number
+  fileUrl: number
   sortOrder: number
   _all: number
 }
@@ -93,6 +96,7 @@ export type PublicationMinAggregateInputType = {
   venue?: true
   details?: true
   link?: true
+  fileUrl?: true
   sortOrder?: true
 }
 
@@ -105,6 +109,7 @@ export type PublicationMaxAggregateInputType = {
   venue?: true
   details?: true
   link?: true
+  fileUrl?: true
   sortOrder?: true
 }
 
@@ -117,6 +122,7 @@ export type PublicationCountAggregateInputType = {
   venue?: true
   details?: true
   link?: true
+  fileUrl?: true
   sortOrder?: true
   _all?: true
 }
@@ -216,6 +222,7 @@ export type PublicationGroupByOutputType = {
   venue: string | null
   details: string | null
   link: string | null
+  fileUrl: string | null
   sortOrder: number
   _count: PublicationCountAggregateOutputType | null
   _avg: PublicationAvgAggregateOutputType | null
@@ -251,6 +258,7 @@ export type PublicationWhereInput = {
   venue?: Prisma.StringNullableFilter<"Publication"> | string | null
   details?: Prisma.StringNullableFilter<"Publication"> | string | null
   link?: Prisma.StringNullableFilter<"Publication"> | string | null
+  fileUrl?: Prisma.StringNullableFilter<"Publication"> | string | null
   sortOrder?: Prisma.IntFilter<"Publication"> | number
 }
 
@@ -263,6 +271,7 @@ export type PublicationOrderByWithRelationInput = {
   venue?: Prisma.SortOrderInput | Prisma.SortOrder
   details?: Prisma.SortOrderInput | Prisma.SortOrder
   link?: Prisma.SortOrderInput | Prisma.SortOrder
+  fileUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -278,6 +287,7 @@ export type PublicationWhereUniqueInput = Prisma.AtLeast<{
   venue?: Prisma.StringNullableFilter<"Publication"> | string | null
   details?: Prisma.StringNullableFilter<"Publication"> | string | null
   link?: Prisma.StringNullableFilter<"Publication"> | string | null
+  fileUrl?: Prisma.StringNullableFilter<"Publication"> | string | null
   sortOrder?: Prisma.IntFilter<"Publication"> | number
 }, "id">
 
@@ -290,6 +300,7 @@ export type PublicationOrderByWithAggregationInput = {
   venue?: Prisma.SortOrderInput | Prisma.SortOrder
   details?: Prisma.SortOrderInput | Prisma.SortOrder
   link?: Prisma.SortOrderInput | Prisma.SortOrder
+  fileUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
   _count?: Prisma.PublicationCountOrderByAggregateInput
   _avg?: Prisma.PublicationAvgOrderByAggregateInput
@@ -310,6 +321,7 @@ export type PublicationScalarWhereWithAggregatesInput = {
   venue?: Prisma.StringNullableWithAggregatesFilter<"Publication"> | string | null
   details?: Prisma.StringNullableWithAggregatesFilter<"Publication"> | string | null
   link?: Prisma.StringNullableWithAggregatesFilter<"Publication"> | string | null
+  fileUrl?: Prisma.StringNullableWithAggregatesFilter<"Publication"> | string | null
   sortOrder?: Prisma.IntWithAggregatesFilter<"Publication"> | number
 }
 
@@ -321,6 +333,7 @@ export type PublicationCreateInput = {
   venue?: string | null
   details?: string | null
   link?: string | null
+  fileUrl?: string | null
   sortOrder?: number
 }
 
@@ -333,6 +346,7 @@ export type PublicationUncheckedCreateInput = {
   venue?: string | null
   details?: string | null
   link?: string | null
+  fileUrl?: string | null
   sortOrder?: number
 }
 
@@ -344,6 +358,7 @@ export type PublicationUpdateInput = {
   venue?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   details?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -356,6 +371,7 @@ export type PublicationUncheckedUpdateInput = {
   venue?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   details?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -368,6 +384,7 @@ export type PublicationCreateManyInput = {
   venue?: string | null
   details?: string | null
   link?: string | null
+  fileUrl?: string | null
   sortOrder?: number
 }
 
@@ -379,6 +396,7 @@ export type PublicationUpdateManyMutationInput = {
   venue?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   details?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -391,6 +409,7 @@ export type PublicationUncheckedUpdateManyInput = {
   venue?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   details?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -403,6 +422,7 @@ export type PublicationCountOrderByAggregateInput = {
   venue?: Prisma.SortOrder
   details?: Prisma.SortOrder
   link?: Prisma.SortOrder
+  fileUrl?: Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -420,6 +440,7 @@ export type PublicationMaxOrderByAggregateInput = {
   venue?: Prisma.SortOrder
   details?: Prisma.SortOrder
   link?: Prisma.SortOrder
+  fileUrl?: Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -432,6 +453,7 @@ export type PublicationMinOrderByAggregateInput = {
   venue?: Prisma.SortOrder
   details?: Prisma.SortOrder
   link?: Prisma.SortOrder
+  fileUrl?: Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -451,6 +473,7 @@ export type PublicationSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   venue?: boolean
   details?: boolean
   link?: boolean
+  fileUrl?: boolean
   sortOrder?: boolean
 }, ExtArgs["result"]["publication"]>
 
@@ -463,6 +486,7 @@ export type PublicationSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   venue?: boolean
   details?: boolean
   link?: boolean
+  fileUrl?: boolean
   sortOrder?: boolean
 }, ExtArgs["result"]["publication"]>
 
@@ -475,6 +499,7 @@ export type PublicationSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   venue?: boolean
   details?: boolean
   link?: boolean
+  fileUrl?: boolean
   sortOrder?: boolean
 }, ExtArgs["result"]["publication"]>
 
@@ -487,10 +512,11 @@ export type PublicationSelectScalar = {
   venue?: boolean
   details?: boolean
   link?: boolean
+  fileUrl?: boolean
   sortOrder?: boolean
 }
 
-export type PublicationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "category" | "title" | "authors" | "year" | "venue" | "details" | "link" | "sortOrder", ExtArgs["result"]["publication"]>
+export type PublicationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "category" | "title" | "authors" | "year" | "venue" | "details" | "link" | "fileUrl" | "sortOrder", ExtArgs["result"]["publication"]>
 
 export type $PublicationPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Publication"
@@ -504,6 +530,7 @@ export type $PublicationPayload<ExtArgs extends runtime.Types.Extensions.Interna
     venue: string | null
     details: string | null
     link: string | null
+    fileUrl: string | null
     sortOrder: number
   }, ExtArgs["result"]["publication"]>
   composites: {}
@@ -936,6 +963,7 @@ export interface PublicationFieldRefs {
   readonly venue: Prisma.FieldRef<"Publication", 'String'>
   readonly details: Prisma.FieldRef<"Publication", 'String'>
   readonly link: Prisma.FieldRef<"Publication", 'String'>
+  readonly fileUrl: Prisma.FieldRef<"Publication", 'String'>
   readonly sortOrder: Prisma.FieldRef<"Publication", 'Int'>
 }
     

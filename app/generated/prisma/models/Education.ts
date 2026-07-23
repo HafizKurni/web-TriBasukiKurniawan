@@ -44,6 +44,8 @@ export type EducationMinAggregateOutputType = {
   major: string | null
   period: string | null
   location: string | null
+  link: string | null
+  fileUrl: string | null
   sortOrder: number | null
 }
 
@@ -55,6 +57,8 @@ export type EducationMaxAggregateOutputType = {
   major: string | null
   period: string | null
   location: string | null
+  link: string | null
+  fileUrl: string | null
   sortOrder: number | null
 }
 
@@ -66,6 +70,8 @@ export type EducationCountAggregateOutputType = {
   major: number
   period: number
   location: number
+  link: number
+  fileUrl: number
   sortOrder: number
   _all: number
 }
@@ -89,6 +95,8 @@ export type EducationMinAggregateInputType = {
   major?: true
   period?: true
   location?: true
+  link?: true
+  fileUrl?: true
   sortOrder?: true
 }
 
@@ -100,6 +108,8 @@ export type EducationMaxAggregateInputType = {
   major?: true
   period?: true
   location?: true
+  link?: true
+  fileUrl?: true
   sortOrder?: true
 }
 
@@ -111,6 +121,8 @@ export type EducationCountAggregateInputType = {
   major?: true
   period?: true
   location?: true
+  link?: true
+  fileUrl?: true
   sortOrder?: true
   _all?: true
 }
@@ -209,6 +221,8 @@ export type EducationGroupByOutputType = {
   major: string | null
   period: string
   location: string | null
+  link: string | null
+  fileUrl: string | null
   sortOrder: number
   _count: EducationCountAggregateOutputType | null
   _avg: EducationAvgAggregateOutputType | null
@@ -243,6 +257,8 @@ export type EducationWhereInput = {
   major?: Prisma.StringNullableFilter<"Education"> | string | null
   period?: Prisma.StringFilter<"Education"> | string
   location?: Prisma.StringNullableFilter<"Education"> | string | null
+  link?: Prisma.StringNullableFilter<"Education"> | string | null
+  fileUrl?: Prisma.StringNullableFilter<"Education"> | string | null
   sortOrder?: Prisma.IntFilter<"Education"> | number
 }
 
@@ -254,6 +270,8 @@ export type EducationOrderByWithRelationInput = {
   major?: Prisma.SortOrderInput | Prisma.SortOrder
   period?: Prisma.SortOrder
   location?: Prisma.SortOrderInput | Prisma.SortOrder
+  link?: Prisma.SortOrderInput | Prisma.SortOrder
+  fileUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -268,6 +286,8 @@ export type EducationWhereUniqueInput = Prisma.AtLeast<{
   major?: Prisma.StringNullableFilter<"Education"> | string | null
   period?: Prisma.StringFilter<"Education"> | string
   location?: Prisma.StringNullableFilter<"Education"> | string | null
+  link?: Prisma.StringNullableFilter<"Education"> | string | null
+  fileUrl?: Prisma.StringNullableFilter<"Education"> | string | null
   sortOrder?: Prisma.IntFilter<"Education"> | number
 }, "id">
 
@@ -279,6 +299,8 @@ export type EducationOrderByWithAggregationInput = {
   major?: Prisma.SortOrderInput | Prisma.SortOrder
   period?: Prisma.SortOrder
   location?: Prisma.SortOrderInput | Prisma.SortOrder
+  link?: Prisma.SortOrderInput | Prisma.SortOrder
+  fileUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
   _count?: Prisma.EducationCountOrderByAggregateInput
   _avg?: Prisma.EducationAvgOrderByAggregateInput
@@ -298,6 +320,8 @@ export type EducationScalarWhereWithAggregatesInput = {
   major?: Prisma.StringNullableWithAggregatesFilter<"Education"> | string | null
   period?: Prisma.StringWithAggregatesFilter<"Education"> | string
   location?: Prisma.StringNullableWithAggregatesFilter<"Education"> | string | null
+  link?: Prisma.StringNullableWithAggregatesFilter<"Education"> | string | null
+  fileUrl?: Prisma.StringNullableWithAggregatesFilter<"Education"> | string | null
   sortOrder?: Prisma.IntWithAggregatesFilter<"Education"> | number
 }
 
@@ -308,6 +332,8 @@ export type EducationCreateInput = {
   major?: string | null
   period: string
   location?: string | null
+  link?: string | null
+  fileUrl?: string | null
   sortOrder?: number
 }
 
@@ -319,6 +345,8 @@ export type EducationUncheckedCreateInput = {
   major?: string | null
   period: string
   location?: string | null
+  link?: string | null
+  fileUrl?: string | null
   sortOrder?: number
 }
 
@@ -329,6 +357,8 @@ export type EducationUpdateInput = {
   major?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   period?: Prisma.StringFieldUpdateOperationsInput | string
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -340,6 +370,8 @@ export type EducationUncheckedUpdateInput = {
   major?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   period?: Prisma.StringFieldUpdateOperationsInput | string
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -351,6 +383,8 @@ export type EducationCreateManyInput = {
   major?: string | null
   period: string
   location?: string | null
+  link?: string | null
+  fileUrl?: string | null
   sortOrder?: number
 }
 
@@ -361,6 +395,8 @@ export type EducationUpdateManyMutationInput = {
   major?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   period?: Prisma.StringFieldUpdateOperationsInput | string
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -372,6 +408,8 @@ export type EducationUncheckedUpdateManyInput = {
   major?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   period?: Prisma.StringFieldUpdateOperationsInput | string
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -383,6 +421,8 @@ export type EducationCountOrderByAggregateInput = {
   major?: Prisma.SortOrder
   period?: Prisma.SortOrder
   location?: Prisma.SortOrder
+  link?: Prisma.SortOrder
+  fileUrl?: Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -399,6 +439,8 @@ export type EducationMaxOrderByAggregateInput = {
   major?: Prisma.SortOrder
   period?: Prisma.SortOrder
   location?: Prisma.SortOrder
+  link?: Prisma.SortOrder
+  fileUrl?: Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -410,6 +452,8 @@ export type EducationMinOrderByAggregateInput = {
   major?: Prisma.SortOrder
   period?: Prisma.SortOrder
   location?: Prisma.SortOrder
+  link?: Prisma.SortOrder
+  fileUrl?: Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -428,6 +472,8 @@ export type EducationSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   major?: boolean
   period?: boolean
   location?: boolean
+  link?: boolean
+  fileUrl?: boolean
   sortOrder?: boolean
 }, ExtArgs["result"]["education"]>
 
@@ -439,6 +485,8 @@ export type EducationSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
   major?: boolean
   period?: boolean
   location?: boolean
+  link?: boolean
+  fileUrl?: boolean
   sortOrder?: boolean
 }, ExtArgs["result"]["education"]>
 
@@ -450,6 +498,8 @@ export type EducationSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
   major?: boolean
   period?: boolean
   location?: boolean
+  link?: boolean
+  fileUrl?: boolean
   sortOrder?: boolean
 }, ExtArgs["result"]["education"]>
 
@@ -461,10 +511,12 @@ export type EducationSelectScalar = {
   major?: boolean
   period?: boolean
   location?: boolean
+  link?: boolean
+  fileUrl?: boolean
   sortOrder?: boolean
 }
 
-export type EducationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "level" | "institution" | "faculty" | "major" | "period" | "location" | "sortOrder", ExtArgs["result"]["education"]>
+export type EducationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "level" | "institution" | "faculty" | "major" | "period" | "location" | "link" | "fileUrl" | "sortOrder", ExtArgs["result"]["education"]>
 
 export type $EducationPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Education"
@@ -477,6 +529,8 @@ export type $EducationPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     major: string | null
     period: string
     location: string | null
+    link: string | null
+    fileUrl: string | null
     sortOrder: number
   }, ExtArgs["result"]["education"]>
   composites: {}
@@ -908,6 +962,8 @@ export interface EducationFieldRefs {
   readonly major: Prisma.FieldRef<"Education", 'String'>
   readonly period: Prisma.FieldRef<"Education", 'String'>
   readonly location: Prisma.FieldRef<"Education", 'String'>
+  readonly link: Prisma.FieldRef<"Education", 'String'>
+  readonly fileUrl: Prisma.FieldRef<"Education", 'String'>
   readonly sortOrder: Prisma.FieldRef<"Education", 'Int'>
 }
     
